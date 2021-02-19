@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.heroGradient {
+  background: linear-gradient(45deg, #2455eb, #24ddeb, #9933cc);
+  background-size: 600% 600%;
+  animation: GradientBackground 10s ease infinite;
+}
+
+@keyframes GradientBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@layer utilities {
+  .h-500 {
+    height: 500px;
+  }
+}
