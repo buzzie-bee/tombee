@@ -26,4 +26,8 @@
   .h-500 {
     height: 500px;
   }
+  .text-blue-theme {
+    --tw-text-opacity: 1;
+    color: rgba(36, 85, 235, var(--tw-text-opacity));
+  }
 }
