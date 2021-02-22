@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.heroGradient {
-  background: linear-gradient(45deg, #2455eb, #24ddeb, #9933cc);
-  background-size: 600% 600%;
-  animation: GradientBackground 10s ease infinite;
-}
-
 @keyframes GradientBackground {
   0% {
     background-position: 0% 50%;
@@ -26,8 +20,9 @@
   .h-500 {
     height: 500px;
   }
-  .text-blue-theme {
-    --tw-text-opacity: 1;
-    color: rgba(36, 85, 235, var(--tw-text-opacity));
+  .heroGradient {
+    background: linear-gradient(45deg, #2563eb, #24ddeb, #2563eb);
+    background-size: 600% 600%;
+    animation: GradientBackground 10s ease infinite;
   }
 }
