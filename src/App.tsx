@@ -1,11 +1,15 @@
+import { useState } from 'react';
 import { HeroWave } from './components/HeroWave';
 import { Card } from './components/Card';
 import { Button } from './components/Button';
-
-import portrait from './assets/me.jpg';
 import { Modal } from './components/Modal';
 
+import portrait from './assets/me.jpg';
+import { TimelineElement } from './components/Timeline/TimelineElement';
+
 export const App = () => {
+  const [privateModalOpen, setPrivateModalOpen] = useState<boolean>(false);
+
   return (
     <div className="">
       <HeroWave>
@@ -221,7 +225,7 @@ export const App = () => {
               <div className="flex flex-row justify-evenly flex-wrap mt-8 ">
                 <Button
                   onClick={() => {
-                    alert('on requst');
+                    setPrivateModalOpen(true);
                   }}
                 >
                   <span>Github*</span>
@@ -260,7 +264,11 @@ export const App = () => {
                 Ruby on Rails, PostgreSQL HTML, Bulma CSS, Stripe
               </div>
               <div className="flex flex-row justify-evenly flex-wrap mt-8">
-                <Button onClick={() => {}}>
+                <Button
+                  onClick={() => {
+                    setPrivateModalOpen(true);
+                  }}
+                >
                   <span>Github*</span>
                 </Button>
                 <Button
@@ -289,11 +297,34 @@ export const App = () => {
             Timeline
           </h1>
         </div>
+        <div className="flex flex-col justify-center">
+          <TimelineElement
+            side="right"
+            year="2021"
+            title="Test title"
+            description="Test description goes here. Lets make it nice and long and see what happens."
+          />
+          <TimelineElement
+            side="left"
+            year="2020"
+            title="Test title"
+            description="Test description goes here. Lets make it nice and long and see what happens."
+          />
+        </div>
       </div>
 
       <div className="h-96" />
 
-      <Modal />
+      <Modal
+        open={privateModalOpen}
+        onReject={() => {
+          setPrivateModalOpen(false);
+        }}
+        onAccept={() => {
+          //TODO: redirect to the contact form
+          setPrivateModalOpen(false);
+        }}
+      />
 
       <div className="">Timeline</div>
       <div className="">Contact</div>
