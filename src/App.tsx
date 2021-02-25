@@ -111,6 +111,17 @@ export const App = () => {
 
       <div className="my-12 container mx-auto max-w-2xl border-b border-black " />
 
+      <Modal
+        open={privateModalOpen}
+        onReject={() => {
+          setPrivateModalOpen(false);
+        }}
+        onAccept={() => {
+          //TODO: redirect to the contact form
+          setPrivateModalOpen(false);
+        }}
+      />
+
       <div className="max-w-7xl mx-auto px-8 ">
         <div className="flex flex-col justify-center items-center">
           <h1 className="py-2 mb-4 font-sans text-5xl font-semibold text-blue-600">
@@ -294,17 +305,6 @@ export const App = () => {
       <Timeline />
 
       <div className="h-96" />
-
-      <Modal
-        open={privateModalOpen}
-        onReject={() => {
-          setPrivateModalOpen(false);
-        }}
-        onAccept={() => {
-          //TODO: redirect to the contact form
-          setPrivateModalOpen(false);
-        }}
-      />
 
       <div className="">Contact</div>
     </div>

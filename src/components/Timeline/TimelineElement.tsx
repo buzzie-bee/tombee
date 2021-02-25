@@ -12,13 +12,13 @@ export const TimelineElement = ({
   description: string[];
 }) => {
   return (
-    <div className="grid grid-cols-3">
+    <div className="grid grid-cols-4 sm:grid-cols-3">
       {side === 'left' ? (
         <TimelineCard title={title} description={description} />
       ) : (
-        <div />
+        <div className="hidden sm:block  sm:col-auto" />
       )}
-      <div className="flex flex-row justify-center items-stretch ">
+      <div className="flex flex-row justify-center items-stretch col-span-1  sm:col-auto ">
         <div className="relative h-full border-r-2 border-l-2 border-blue-600">
           <div
             className={`absolute z-30 top-1/2 left-1/2 ${
