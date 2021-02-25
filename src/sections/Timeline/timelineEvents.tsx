@@ -149,7 +149,7 @@ export const timelineEvents: {
     year: '2014',
     title: 'QAA',
     description: [
-      'I was trained as a reviewer for the Quality Assurance Agency and conducted a review of a Higher Education provider in Bolton',
+      'I was trained as a reviewer for the Quality Assurance Agency and conducted a review of a Higher Education provider in Bolton.',
       'This involved thoroughly reviewing all of the existing standards documentation of the institution as well as conducting on site interviews to get the full picture of the Quality Procedures.',
       'Finally I was tasked with writing up all of my findings and producing a report alongside the other 2 reviewers.',
     ],
