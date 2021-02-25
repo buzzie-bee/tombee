@@ -3,9 +3,9 @@ import { HeroWave } from './components/HeroWave';
 import { Card } from './components/Card';
 import { Button } from './components/Button';
 import { Modal } from './components/Modal';
+import { Timeline } from './sections/Timeline/Timeline';
 
 import portrait from './assets/me.jpg';
-import { TimelineElement } from './components/Timeline/TimelineElement';
 
 export const App = () => {
   const [privateModalOpen, setPrivateModalOpen] = useState<boolean>(false);
@@ -291,27 +291,7 @@ export const App = () => {
 
       <div className="my-12 container mx-auto max-w-2xl border-b border-black " />
 
-      <div className="max-w-7xl mx-auto px-8 ">
-        <div className="flex flex-col justify-center items-center">
-          <h1 className="py-2 mb-4 font-sans text-5xl font-semibold text-blue-600">
-            Timeline
-          </h1>
-        </div>
-        <div className="flex flex-col justify-center">
-          <TimelineElement
-            side="right"
-            year="2021"
-            title="Test title"
-            description="Test description goes here. Lets make it nice and long and see what happens."
-          />
-          <TimelineElement
-            side="left"
-            year="2020"
-            title="Test title"
-            description="Test description goes here. Lets make it nice and long and see what happens."
-          />
-        </div>
-      </div>
+      <Timeline />
 
       <div className="h-96" />
 
@@ -326,7 +306,6 @@ export const App = () => {
         }}
       />
 
-      <div className="">Timeline</div>
       <div className="">Contact</div>
     </div>
   );

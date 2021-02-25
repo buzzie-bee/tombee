@@ -9,7 +9,7 @@ export const TimelineElement = ({
   side: 'left' | 'right';
   year: string;
   title: string;
-  description: string;
+  description: string[];
 }) => {
   return (
     <div className="grid grid-cols-3">
@@ -29,8 +29,8 @@ export const TimelineElement = ({
           </div>
           <div className="absolute z-20 top-1/2  -mt-3 -ml-3 w-6 h-6 rounded-full border-4 border-blue-600  bg-white" />
           <div
-            className={`absolute z-10 top-1/2 w-44 -mt-0.5 ${
-              side === 'left' ? '-ml-44' : ''
+            className={`absolute z-10 top-1/2 w-44 md:w-64 -mt-0.5 ${
+              side === 'left' ? '-ml-44 md:-ml-64' : ''
             } border-t-4 border-blue-600`}
           />
         </div>
