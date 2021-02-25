@@ -20,7 +20,7 @@
   .h-500 {
     height: 500px;
   }
-  .heroGradient {
+  .hero-gradient {
     background: linear-gradient(45deg, #2563eb, #24ddeb, #2563eb);
     background-size: 600% 600%;
     animation: GradientBackground 10s ease infinite;
