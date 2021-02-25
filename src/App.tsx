@@ -1,11 +1,13 @@
+import { RefObject, useRef, useState } from 'react';
+import useIntersectionObserver from '@react-hook/intersection-observer';
+
+import { Navigation } from './sections/Navigation/Navigation';
+import { Skills } from './sections/Skills/Skills';
+import { Intro } from './sections/Intro/Intro';
 import { HeroWave } from './components/HeroWave';
 import { Projects } from './sections/Projects/Projects';
 import { Timeline } from './sections/Timeline/Timeline';
-
 import { Contact } from './sections/Contact/Contact';
-import { Skills } from './sections/Skills/Skills';
-import { Intro } from './sections/Intro/Intro';
-import { useRef } from 'react';
 
 export const App = () => {
   const introRef = useRef<HTMLDivElement>(null);
@@ -14,15 +16,24 @@ export const App = () => {
   const timelineRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
 
+  const [ref, setRef] = useState<HTMLElement | RefObject<HTMLElement> | null>(
+    null
+  );
+  const { isIntersecting } = useIntersectionObserver(ref, {
+    initialIsIntersecting: true,
+  });
+
   return (
     <div className="">
       <Navigation
+        opaque={!isIntersecting}
         introRef={introRef}
         skillsRef={skillsRef}
         projectsRef={projectsRef}
         timelineRef={timelineRef}
         contactRef={contactRef}
       />
+
       <HeroWave>
         <div className="w-full h-full flex flex-col justify-center items-center">
           <div className="text-white font-sans font-semibold text-6xl sm:text-8xl">
@@ -33,6 +44,7 @@ export const App = () => {
           </div>
         </div>
       </HeroWave>
+      <div ref={setRef} className="-mt-16 mb-32" />
 
       <div ref={introRef}>
         <Intro />
@@ -61,24 +73,6 @@ export const App = () => {
       </div>
 
       <div className="h-96" />
-      <button
-        onClick={() => {
-          scrollTo(introRef);
-        }}
-      >
-        Test
-      </button>
     </div>
   );
-};
-
-const scrollTo = (ref: React.RefObject<HTMLDivElement>): void => {
-  if (ref.current) {
-    if (ref.current.scrollHeight) {
-      window.scrollTo({
-        top: ref.current.offsetTop - 100,
-        behavior: 'smooth',
-      });
-    }
-  }
 };
