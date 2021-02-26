@@ -23,7 +23,7 @@ export const timelineEvents: {
     title: 'Moved to Germany',
     description: [
       'I left my Senior Consulting Engineer position at Keyence UK and moved to Germany in December 2020 to become a full time Web Developer.',
-      'I am now a resident of Germany with full working rights, am learning the language every day, and am looking for opportunities to add value to businesses and expand my skill base.',
+      'I am now a resident of Germany with full working rights (Erwerbstätigkeit erlaubt), am learning the language every day, and am looking for opportunities to add value to businesses and expand my skill base.',
     ],
   },
   {
