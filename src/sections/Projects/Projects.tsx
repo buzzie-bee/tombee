@@ -19,7 +19,7 @@ export const Projects = () => {
         }}
       />
 
-      <div className="max-w-7xl mx-auto px-8 ">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 ">
         <div className="flex flex-col justify-center items-center">
           <h1 className="py-2 mb-4 font-sans text-5xl font-semibold text-blue-600">
             Projects

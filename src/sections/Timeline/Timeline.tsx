@@ -7,7 +7,7 @@ export const Timeline = () => {
   const { width } = useWindowSize();
 
   return (
-    <div className="max-w-7xl mx-auto px-8 ">
+    <div className="max-w-7xl mx-auto px-8 mb-20 ">
       <div className="flex flex-col justify-center items-center">
         <h1 className="py-2 mb-14 font-sans text-5xl font-semibold text-blue-600">
           Timeline
@@ -22,6 +22,7 @@ export const Timeline = () => {
           }
           return (
             <TimelineElement
+              key={title}
               side={side}
               year={year}
               title={title}
