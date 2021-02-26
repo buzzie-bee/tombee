@@ -8,6 +8,7 @@ import { HeroWave } from './components/HeroWave';
 import { Projects } from './sections/Projects/Projects';
 import { Timeline } from './sections/Timeline/Timeline';
 import { Contact } from './sections/Contact/Contact';
+import { Divider } from './components/Divider';
 
 export const App = () => {
   const introRef = useRef<HTMLDivElement>(null);
@@ -50,24 +51,22 @@ export const App = () => {
         <Intro />
       </div>
 
-      <div className="my-12 container mx-auto max-w-2xl border-b border-black " />
-
+      <Divider />
       <div ref={skillsRef}>
         <Skills />
       </div>
 
-      <div className="my-12 container mx-auto max-w-2xl border-b border-black " />
-
+      <Divider />
       <div ref={projectsRef}>
         <Projects />
       </div>
 
-      <div className="my-12 container mx-auto max-w-2xl border-b border-black " />
+      <Divider />
       <div ref={timelineRef}>
         <Timeline />
       </div>
 
-      <div className="mt-28 mb-12 container mx-auto max-w-2xl border-b border-black " />
+      <Divider />
       <div ref={contactRef}>
         <Contact />
       </div>
