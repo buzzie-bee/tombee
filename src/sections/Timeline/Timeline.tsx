@@ -1,5 +1,5 @@
-import { TimelineElement } from '../../components/Timeline/TimelineElement';
-import { TimelineStop } from '../../components/Timeline/TimelineStop';
+import { TimelineElement } from './components/TimelineElement';
+import { TimelineStop } from './components/TimelineStop';
 import { useWindowSize } from '../../hooks/useWindowSize';
 import { timelineEvents } from './timelineEvents';
 

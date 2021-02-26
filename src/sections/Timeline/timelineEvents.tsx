@@ -46,8 +46,10 @@ export const timelineEvents: {
     year: '2020',
     title: 'Conflict Data Entry',
     description: [
-      'This was a personal project for my partner and her colleagues to develop a data entry application for the conflict dataset they were building.',
-      'This involved parsing thousands of manually created excel datasets and rendering the data for each one in a usable manner so that they could code each conflict record for specific values.',
+      "This was a personal project for my partner and her colleagues to develop a data entry application for the 'Impact of Mercenaries and PMSCs on Civil War Dynamics' research project at the University of Liverpool.",
+      "The data entry application was used for manual coding of data for the 'Commercial Military Actor Database' funded by the 'Gerda Henkel Foundation'.",
+      'This involved parsing and normalising thousands of manually created excel dataset entries via a python flask api, then rendering the data for each record in a usable manner using React.',
+      'This custom data entry application platform enabled the coding of each conflict in seconds instead of minutes, saving hundreds of man hours.',
       'The data was then stored and once a conflict was fully coded a new excel was generated with all of the conflict and coding data.',
     ],
   },
@@ -127,7 +129,11 @@ export const timelineEvents: {
       'After completing my Mechanical Engineering degree I started my role as a Sales Engineer at Keyence UK.',
       "Keyence is Japan's fourth largest company by market cap and is the leader in factory automation sensing equipment for the manufacturing industry.",
       'This was a multi-discipliniary role involving mechanical, electrical, and software design and integration.',
+      'Projects I was involved in covered a huge range of different challenges.',
+      'From SAP, SCADA, and MRP systems integration, through to industrial machine vision systems and AI.',
+      'From robot cell guidance and safety systems to high precision inline and offline measurement and validation systems.',
       "I worked as a Sales Engineer for a few years working directly with my own customer base before I transitioned into a Senior Consulting Engineer as a technical specialist where I worked with across the whole UK to come up with innovative and winning solutions to our customer's challenges.",
+      'A particular strength of mine was the Auto ID industrial barcode readers for traceability systems. I used my knowlege of python and databases to help customers design new traceability systems, and my knowlege of lua for embedded script programming ensured I could integrate with almost any existing system.',
       'I learnt an incredible amount during my time at Keyence and the constant innovation and problem solving involved has helped me pick up programming languages and software engineering practices quite quickly.',
     ],
   },
@@ -136,6 +142,7 @@ export const timelineEvents: {
     title: 'Graduated BEng',
     description: [
       'I graduated with a B.Eng with Honors in Mechanical Engineering.',
+      'This year was also when I started playing around with Ruby on Rails.',
     ],
   },
   {
@@ -164,7 +171,7 @@ export const timelineEvents: {
       'Part of my role was to work with the University serving on high level commitees to advocate for improvements as well as to help set policy and standards.',
       'I also represented the students of Liverpool on a national level and attended events with both the NUS, QAA, and other national HE bodies.',
       "A particularly large project was to oversee the much needed £1.4m rennovation of the Students' Union building as well as select and guide graphics design agencies to conduct a rebrand.",
-      'This was a full time role for 2 years and I had a great time serving in it and I feel like I made some real changes.',
+      'This was a full time role for 2 years which I took as a sabbatical. I had a great time serving in it and I feel like I made some real changes.',
     ],
   },
   {
@@ -172,6 +179,9 @@ export const timelineEvents: {
     title: 'Started at University',
     description: [
       'I went to the University of Liverpool to study Mechanical Engineering.',
+      'My course involved using matlab a lot as well as digital electronics foundational courses.',
+      'I was also quite proficient in PTC Creo for 3D cad work.',
+      'I was also President of the Engineering society which was great fun.',
     ],
   },
   {
@@ -179,6 +189,9 @@ export const timelineEvents: {
     title: 'Born and Raised',
     description: [
       'I was born in Blackpool, UK and grew up in nearby Poulton-Le-Fylde.',
+      'Growing up I always wanted to be an inventor like Doc Martin from back to the future and loved tinkering with knex and electronics.',
+      "My first computer was a vtech kids laptop which I spent hours tinkering with and playing with the DOS interface, so I guess you could say I've been programming for about 20 years!",
+      "I also played around with HTML at an early age and set up geocities sites which looked just like you imagine a 90's homepage would look.",
     ],
   },
 ];

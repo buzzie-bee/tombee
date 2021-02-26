@@ -2,14 +2,13 @@ import { RefObject, useRef, useState } from 'react';
 import useIntersectionObserver from '@react-hook/intersection-observer';
 
 import { Navigation } from './sections/Navigation/Navigation';
+import { Hero } from './sections/Hero/Hero';
 import { Skills } from './sections/Skills/Skills';
 import { Intro } from './sections/Intro/Intro';
-import { HeroWave } from './components/HeroWave';
 import { Projects } from './sections/Projects/Projects';
 import { Timeline } from './sections/Timeline/Timeline';
 import { Contact } from './sections/Contact/Contact';
 import { Divider } from './components/Divider';
-import { Hero } from './sections/Hero/Hero';
 import { Footer } from './sections/Footer/Footer';
 
 export const App = () => {
