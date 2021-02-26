@@ -1,3 +1,8 @@
+import { useRef, useState } from 'react';
+import { useOnClickOutside } from '../../hooks/useClickOutside';
+import { DesktopNavigation } from './DesktopNavigation';
+import { MobileNavigation } from './MobileNavigation';
+
 interface NavigationPropsType {
   opaque: boolean;
   introRef: React.RefObject<HTMLDivElement>;
@@ -14,65 +19,40 @@ export const Navigation = ({
   timelineRef,
   contactRef,
 }: NavigationPropsType) => {
+  const [open, setOpen] = useState<boolean>(false);
+  const navRef = useRef<HTMLDivElement>(null);
+
+  const handleClickOutside = () => {
+    if (open) {
+      setOpen(false);
+    }
+  };
+
+  useOnClickOutside({ ref: navRef, handler: handleClickOutside });
+
   return (
     <nav
+      ref={navRef}
       className={`fixed top-0 z-50  w-full nav-gradient ${
-        opaque && 'bg-blue-600 bg-opacity-80'
+        (opaque || open) && 'bg-blue-600 bg-opacity-80'
       }`}
     >
-      <div className="flex flex-row justify-evenly items-center py-2">
-        <div
-          className="font-sans text-gray-100 text-lg cursor-pointer hover:underline"
-          onClick={() => {
-            scrollTo(introRef);
-          }}
-        >
-          Intro
-        </div>
-        <div
-          className="font-sans text-gray-100 text-lg cursor-pointer hover:underline"
-          onClick={() => {
-            scrollTo(skillsRef);
-          }}
-        >
-          Skills
-        </div>
-        <div
-          className="font-sans text-gray-100 text-lg cursor-pointer hover:underline"
-          onClick={() => {
-            scrollTo(projectsRef);
-          }}
-        >
-          Projects
-        </div>
-        <div
-          className="font-sans text-gray-100 text-lg cursor-pointer hover:underline"
-          onClick={() => {
-            scrollTo(timelineRef);
-          }}
-        >
-          Timeline
-        </div>
-        <div
-          className="font-sans text-gray-100 text-lg cursor-pointer hover:underline"
-          onClick={() => {
-            scrollTo(contactRef);
-          }}
-        >
-          Contact
-        </div>
-      </div>
+      <DesktopNavigation
+        introRef={introRef}
+        skillsRef={skillsRef}
+        projectsRef={projectsRef}
+        timelineRef={timelineRef}
+        contactRef={contactRef}
+      />
+      <MobileNavigation
+        open={open}
+        setOpen={setOpen}
+        introRef={introRef}
+        skillsRef={skillsRef}
+        projectsRef={projectsRef}
+        timelineRef={timelineRef}
+        contactRef={contactRef}
+      />
     </nav>
   );
-};
-
-const scrollTo = (ref: React.RefObject<HTMLDivElement>): void => {
-  if (ref.current) {
-    if (ref.current.scrollHeight) {
-      window.scrollTo({
-        top: ref.current.offsetTop - 110,
-        behavior: 'smooth',
-      });
-    }
-  }
 };
