@@ -9,6 +9,7 @@ import { Projects } from './sections/Projects/Projects';
 import { Timeline } from './sections/Timeline/Timeline';
 import { Contact } from './sections/Contact/Contact';
 import { Divider } from './components/Divider';
+import { Hero } from './sections/Hero/Hero';
 
 export const App = () => {
   const introRef = useRef<HTMLDivElement>(null);
@@ -35,16 +36,9 @@ export const App = () => {
         contactRef={contactRef}
       />
 
-      <HeroWave>
-        <div className="w-full h-full flex flex-col justify-center items-center">
-          <div className="text-white font-sans font-semibold text-6xl sm:text-8xl">
-            Tom Bee
-          </div>
-          <div className="text-white font-sans text-xl sm:text-4xl">
-            Web Developer
-          </div>
-        </div>
-      </HeroWave>
+      <Hero />
+
+      {/* This is for detecting when the navbar should go opaque */}
       <div ref={setRef} className="-mt-16 mb-32" />
 
       <div ref={introRef}>
