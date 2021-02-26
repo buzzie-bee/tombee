@@ -10,6 +10,7 @@ import { Timeline } from './sections/Timeline/Timeline';
 import { Contact } from './sections/Contact/Contact';
 import { Divider } from './components/Divider';
 import { Hero } from './sections/Hero/Hero';
+import { Footer } from './sections/Footer/Footer';
 
 export const App = () => {
   const introRef = useRef<HTMLDivElement>(null);
@@ -65,7 +66,7 @@ export const App = () => {
         <Contact />
       </div>
 
-      <div className="h-96" />
+      <Footer />
     </div>
   );
 };
