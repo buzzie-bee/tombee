@@ -65,4 +65,8 @@
     margin-bottom: 45px;
     height: 45px;
   }
+  .player-wrapper {
+    position: relative;
+    padding-top: 56.25%;
+  }
 }

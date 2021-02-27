@@ -1,10 +1,18 @@
 import { useState } from 'react';
+import ReactPlayer from 'react-player';
 import { Button } from '../../components/Button';
 import { Card } from '../../components/Card';
 import { Modal } from '../../components/Modal';
+import portfolioScreenshot from '../../assets/TomBeePortfolio.png';
 
 export const Projects = () => {
   const [privateModalOpen, setPrivateModalOpen] = useState<boolean>(false);
+  const popToVideoUrl =
+    'https://firebasestorage.googleapis.com/v0/b/tombee.appspot.com/o/lets-pop-to-demo.mp4?alt=media&token=8dfa2add-434d-48df-8f34-1ea9b933082f';
+  const MBVideoUrl =
+    'https://firebasestorage.googleapis.com/v0/b/tombee.appspot.com/o/machine-builders-demo.mp4?alt=media&token=e3feb7d8-fd56-4330-8e6a-a842619f5222';
+  const WBVideoUrl =
+    'https://firebasestorage.googleapis.com/v0/b/tombee.appspot.com/o/window-beez-demo.mp4?alt=media&token=c1f8cd1f-f7d0-4a3f-b1ae-25c5d2a231ea';
 
   return (
     <>
@@ -27,8 +35,18 @@ export const Projects = () => {
         </div>
         <div className="pt-4 grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-6">
           <Card>
-            <div className="flex flex-col justify-evenly items-center">
-              <div className="bg-purple-700 w-48 h-48 rounded-full" />
+            <div className="flex flex-col justify-evenly items-stretch">
+              <div className="player-wrapper">
+                <ReactPlayer
+                  className="absolute top-0 left-0"
+                  width="100%"
+                  height="100%"
+                  url={popToVideoUrl}
+                  loop={true}
+                  controls={true}
+                />
+              </div>
+
               <div className="py-2 font-sans text-2xl font-semibold text-blue-600">
                 <a href="https://www.letspop.to" target="blank">
                   letspop.to
@@ -72,8 +90,14 @@ export const Projects = () => {
           </Card>
 
           <Card>
-            <div className="flex flex-col justify-evenly items-center">
-              <div className="bg-blue-400 w-48 h-48 rounded-full" />
+            <div className="flex flex-col justify-evenly items-stretch">
+              <div className="flex flex-grow flex-row justify-center items-center">
+                <img
+                  className="shadow rounded-md w-4/5 h-auto object-stretch p-4 "
+                  src={portfolioScreenshot}
+                  alt="screenshot of this portfolio page"
+                />
+              </div>
               <div className="py-2 font-sans text-2xl font-semibold text-blue-600">
                 <a href="https://www.tombee.io/" target="blank">
                   tombee.io
@@ -112,8 +136,17 @@ export const Projects = () => {
           </Card>
 
           <Card>
-            <div className="flex flex-col justify-evenly items-center">
-              <div className="bg-green-600 w-48 h-48 rounded-full" />
+            <div className="flex flex-col justify-evenly items-stretch">
+              <div className="player-wrapper">
+                <ReactPlayer
+                  className="absolute top-0 left-0"
+                  width="100%"
+                  height="100%"
+                  url={MBVideoUrl}
+                  loop={true}
+                  controls={true}
+                />
+              </div>
               <div className="py-2 font-sans text-2xl font-semibold text-blue-600">
                 <a href="https://www.machinebuilders.co.uk" target="blank">
                   machinebuilders.co.uk
@@ -154,8 +187,17 @@ export const Projects = () => {
             </div>
           </Card>
           <Card>
-            <div className="flex flex-col justify-evenly items-center">
-              <div className="bg-yellow-600 w-48 h-48 rounded-full" />
+            <div className="flex flex-col justify-evenly items-stretch">
+              <div className="player-wrapper">
+                <ReactPlayer
+                  className="absolute top-0 left-0"
+                  width="100%"
+                  height="100%"
+                  url={WBVideoUrl}
+                  loop={true}
+                  controls={true}
+                />
+              </div>
               <div className="py-2 font-sans text-2xl font-semibold text-blue-600">
                 <a href="https://www.windowbeez.co.uk" target="blank">
                   windowbeez.co.uk
