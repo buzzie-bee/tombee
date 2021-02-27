@@ -1,8 +1,10 @@
-export const timelineEvents: {
+export type TimelineEventsType = {
   year: string;
   title: string;
   description: string[];
-}[] = [
+}[];
+
+export const timelineEvents: TimelineEventsType = [
   {
     year: '2021',
     title: 'Moving to Munich',
