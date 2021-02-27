@@ -1,3 +1,4 @@
+import { Button } from '../../components/Button';
 import { HeroWave } from '../../components/HeroWave';
 
 export const Hero = () => {
@@ -28,6 +29,30 @@ export const Hero = () => {
           <div className="text-white font-sans text-xl h-11 m-0 p-0 sm:text-4xl">
             Developer
           </div>
+        </div>
+        <div className="">
+          <Button
+            onClick={() => {
+              const url = 'https://github.com/buzzie-bee';
+              var win = window.open(url, '_blank');
+              win?.focus();
+            }}
+            color="white"
+            hoverTextColor="blue-600"
+          >
+            <span>Github</span>
+          </Button>
+          <Button
+            onClick={() => {
+              const url = 'https://www.linkedin.com/in/tombee';
+              var win = window.open(url, '_blank');
+              win?.focus();
+            }}
+            color="white"
+            hoverTextColor="blue-600"
+          >
+            <span>LinkedIn</span>
+          </Button>
         </div>
       </div>
     </HeroWave>
