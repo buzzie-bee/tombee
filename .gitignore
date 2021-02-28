@@ -34,3 +34,4 @@ ui-debug.log
 .firebase
 .eslintcache
 firebase-debug.log
+cors.json

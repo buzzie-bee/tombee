@@ -1,3 +1,4 @@
+import { handleDownload } from '../helpers/handleDownload';
 import { scrollTo } from './scrollTo';
 
 interface DesktopNavigationPropsType {
@@ -56,6 +57,16 @@ export const DesktopNavigation = ({
         }}
       >
         Contact
+      </div>
+      <div
+        className="font-sans text-gray-100 text-lg cursor-pointer hover:underline"
+        onClick={() => {
+          const downloadUrl =
+            'https://firebasestorage.googleapis.com/v0/b/tombee.appspot.com/o/Tom%20Bee%20-%20CV.pdf?alt=media&token=d5460873-ffc3-485e-8667-2ac935293898';
+          handleDownload(downloadUrl, 'TomBee-CV.pdf');
+        }}
+      >
+        CV
       </div>
     </div>
   );
