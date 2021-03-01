@@ -6,7 +6,7 @@ Hosted with firebase hosting at www.tombee.io
 
 ## Running locally
 
-Set up the code using:
+Clone the repo using:
 
 `git clone https://github.com/buzzie-bee/tombee`
 
