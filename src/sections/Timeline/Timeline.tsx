@@ -66,7 +66,7 @@ export const Timeline = () => {
       )}
       {!show && (
         <div className="flex flex-col justify-center">
-          <TimelineStop message={'Now'} />
+          <TimelineStop message={endMessages[0]} />
           <TimelineElement
             key={timelineEvents[0].title}
             side="right"
