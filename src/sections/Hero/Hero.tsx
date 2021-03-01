@@ -1,6 +1,5 @@
 import { Button } from '../../components/Button';
 import { HeroWave } from '../../components/HeroWave';
-import { handleDownload } from '../helpers/handleDownload';
 
 export const Hero = () => {
   return (
@@ -56,9 +55,10 @@ export const Hero = () => {
           </Button>
           <Button
             onClick={() => {
-              const downloadUrl =
+              const url =
                 'https://firebasestorage.googleapis.com/v0/b/tombee.appspot.com/o/Tom%20Bee%20-%20CV.pdf?alt=media&token=d5460873-ffc3-485e-8667-2ac935293898';
-              handleDownload(downloadUrl, 'TomBee-CV.pdf');
+              var win = window.open(url, '_blank');
+              win?.focus();
             }}
             color="white"
             hoverTextColor="blue-600"
