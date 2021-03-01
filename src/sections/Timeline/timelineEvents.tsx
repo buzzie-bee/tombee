@@ -9,7 +9,7 @@ export const timelineEvents: TimelineEventsType = [
     year: '2021',
     title: 'Moving to Munich',
     description: [
-      'After my partner has accepted a job offer at the University BW in Munich we are moving to Munich in March 2020 and am I looking for Web Developer opporunities.',
+      'After my partner has accepted a job offer at the University BW in Munich we are moving to Munich in March 2021 and am I looking for React Developer opportunities.',
     ],
   },
   {

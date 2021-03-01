@@ -12,9 +12,7 @@ export const Intro = () => {
             <p className="py-1 text-gray-800">
               I'm originally from Blackpool, UK
             </p>
-            <p className="py-1 text-gray-800">
-              Currently living in Munich, Germany
-            </p>
+            <p className="py-1 text-gray-800">Currently living in Germany</p>
             <p className="py-1 text-gray-800">Engineer turned developer</p>
             <p className="py-1 text-gray-800">
               Passionate about problem solving
