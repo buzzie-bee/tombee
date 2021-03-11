@@ -19,10 +19,10 @@ export const Hero = () => {
                 React
               </li>
               <li className="text-white font-sans text-xl sm:text-4xl px-2.5 py-0 flip-item text-right block">
-                Redux
+                Front-End
               </li>
               <li className="text-white font-sans text-xl sm:text-4xl px-2.5 py-0 flip-item text-right block">
-                Javascript
+                Full-Stack
               </li>
             </ul>
           </div>
