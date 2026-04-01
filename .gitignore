@@ -1,37 +1,66 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-/.pnp
+# Dependencies
+node_modules
+.pnp
 .pnp.js
 
-# testing
-/coverage
+# Testing
+coverage
+.nyc_output
 
-# production
-/build
+# Production
+dist
+build
+.next
+out
 
-# misc
+# Misc
 .DS_Store
-.env.local
+*.pem
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Local env files
+.env
+.env*.local
 .env.development.local
 .env.test.local
 .env.production.local
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# Vercel
+.vercel
 
-# other
-.firebaserc
-firebase.json
-firestore-debug.log
-firestore.indexes.json
-firestore.rules
-storage.rules
-ui-debug.log
+# Turbo
+.turbo
+
+# IDE
 .vscode
-.firebase
-.eslintcache
-firebase-debug.log
-cors.json
+.idea
+*.swp
+*.swo
+*~
+
+# OS
+Thumbs.db
+
+# Playwright
+test-results
+playwright-report
+playwright/.cache
+
+# OpenAPI build artifacts
+openapi/*/bundled.yaml
+openapi/dist/
+
+# Temporary files
+temp/
+
+# archive & backup
+/archive
+
+# AI 
+.claude
+.cursor
