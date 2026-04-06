@@ -1,0 +1,39 @@
+---
+title: SrLogger
+description: A GUI for a manufacturing barcode reading station.
+category: professional
+status: completed
+year: "2019"
+sortOrder: 99
+image: /projects/sr-logger.png
+featured: false
+tags:
+  - Python
+  - SQLite
+links: []
+---
+
+## Overview
+
+We had supplied a Keyence MDX laser marker and Keyence SRG barcode scanners for a manufacturer and they wanted me to create a simple GUI for the operators to use when scanning parts. The operators had to scan a set number of items with unique laser-etched barcodes and place them in a package. They needed to make sure that each barcode scanned was unique and warn the operator if they had double scanned a part, they needed to mark how many items they could not scan, and a CSV report needed to be created for each batch of parts.
+
+The client were really pleased with the system and took my provided code and expanded upon it to build out many more such operator GUIs.
+
+## Tech Stack & Architecture
+
+ - Python
+ - SQLite
+
+This was a fairly simple Python GUI made with kivy that logged scans to a SQLite db and sent completed CSV runs via FTP.
+
+## Key Features
+
+- GUI / HMI for the operator stations
+- Progress tracking
+- Duplicate scan warning
+- Part rejection
+- CSV creation
+
+## Challenges & Learnings
+
+If I were to rebuild this project I would use something other than kivy. It wasn't the prettiest UI/UX. I'd build it using something like electron / tauri with clearer separation of concerns between the barcode scanning, the UI, the database, and the CSV generation / output. For an initial MVP it was fine.

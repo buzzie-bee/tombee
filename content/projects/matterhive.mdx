@@ -1,0 +1,92 @@
+---
+title: MatterHive
+description: Collaboration platform for managing pre-contract enquiries in UK property conveyancing transactions.
+category: startup
+status: active
+year: "2024 - Present"
+sortOrder: 99
+image: /projects/matterhive.png
+featured: true
+tags:
+  - NestJS
+  - Next.js
+  - shadcn/ui
+  - Tailwind CSS
+  - PostgreSQL
+  - RabbitMQ
+  - Zitadel
+  - OpenFGA
+  - Turborepo
+  - ESLint
+  - Prettier
+  - Jest
+  - Playwright
+  - Docker
+  - Terraform
+  - GitHub Actions
+  - Sentry
+  - AWS
+links:
+  - label: Live Site
+    href: https://matterhive.co.uk
+
+---
+
+## Overview
+
+Conveyancing (the legal process of transferring property ownership) in the UK is long, complicated, and frustrating for everyone involved. Transactions have many stakeholders - conveyancers, clients, estate agents, banks, management companies - who all communicate individually via email. This causes information disparity, poor visibility into transaction status, and a lot of manual work prone to errors. Conveyancers spend a significant portion of their day responding to status update requests instead of supporting their clients, and PII and legal ombudsman complaints around communications are a significant risk for law firms.
+
+We spoke with conveyancers to understand their pain points and found that digitising pre-contract enquiries and cutting down on requests for information would save them a huge amount of time while improving the speed and quality of transactions. With inspiration from software development collaboration tools, we built MatterHive - a secure online collaboration portal (SaaS) for managing all pre-contract enquiries. It lets conveyancers from both sides of a transaction, their clients, and any other stakeholders see status, share documents, manage enquiries, and receive automatic updates.
+
+We launched a beta in late 2024 and continue to iterate on the platform and its integrations.
+
+## Tech Stack & Architecture
+
+ - NestJS
+ - Next.js
+ - shadcn/ui
+ - Tailwind
+ - PostgreSQL
+ - RabbitMQ
+ - Zitadel
+ - OpenFGA
+ - Turborepo
+ - ESLint / Prettier
+ - Jest
+ - Playwright
+ - Docker
+ - Terraform
+ - GitHub Actions CI/CD
+ - GA4
+ - Sentry
+ - OpenAPI / AsyncAPI
+ - Codegen from schemas
+ - AWS
+
+It is a modular Turborepo monorepo with a main NestJS backend, NestJS microservices for handling async tasks (email, CMS syncing, notifications), a Next.js frontend, a PostgreSQL database, a RabbitMQ queue, and features shared modules and spec-first development.
+
+As security was of high concern we used encryption at rest for storing any documents, used self hosted Zitadel as our Authentication (AuthN) provider, and due to the need for Relationship Based Access Control (ReBAC) opted to use OpenFGA for our Authorization (AuthZ) provider.
+
+The application was self hosted on AWS using EC2, S3, SNS, RDS, CodeDeploy, CloudFront, CloudWatch.
+
+## Key Features
+
+- Document sharing
+- Enquiry management
+- Live Chat
+- Customisable workflow templates and engine
+- Notifications
+- Case Management System integrations
+- ReBAC via OpenFGA
+
+## Challenges & Learnings
+
+One of the biggest challenges was implementing the access control model. A conveyancing transaction portal needs fine-grained control over who can see what. Some discussions should only be visible to the two conveyancers, but their clients need to know progress is being made. Documents uploaded by a client might be shared with their conveyancer, who could then share them with the other party. Some third parties need to upload documents as part of workflows without seeing anything else, while estate agents should only see overall transaction progress. And if a conveyancer becomes sick, their manager needs to reassign the case and inherit the same visibility. It's a complicated challenge to solve!
+
+We initially considered Role Based Access Control (RBAC) but the granular nature of the access requirements made it non-viable. We wanted the experience to feel like sharing access in Google Docs - users could have access to the whole project, specific pages, documents, or chats, all easily configurable by users with appropriate permissions. Through our research into Relationship Based Access Control (ReBAC) and the Google Zanzibar Authorisation System, we settled on OpenFGA as our ReBAC service. We built NestJS modules, services, and decorators to make adding OpenFGA checks to endpoints straightforward - a simple check could determine if a user can access any given resource.
+
+A smaller challenge was handling AuthN. Zitadel was chosen as our AuthN provider because we wanted a self-hosted, secure, robust, and easy to work with AuthN system. We have home-rolled auth systems in the past but they always take up a lot of time to implement and it's a feature where the risks of a bad implementation are not compensated for by any benefits from reinventing the wheel. We investigated multiple possible providers but Zitadel had the best combination of features and ease of use which meant we could quickly and easily implement a best-in-class production-ready secure AuthN implementation.
+
+Another big challenge was the CMS integrations. For MatterHive to be useable, activity needed to sync to the conveyancers' case management systems. We needed to let conveyancers link their CMS to MatterHive, link individual matters to their cases, and then sync events automatically. We built a microservice that reads from our existing event queue, determines whether an action should be sent to a CMS, verifies the linking user has access to that action, handles sending with deduplication, and implements robust error handling for failed syncs. All further complicated by the fragmented CMS market, which means we need a custom adaptor for each target system.
+
+Overall we built a great product that solves a real gap in the market and I'm proud of what we achieved. We'll continue to add CMS integrations and iterate on the features and UX.

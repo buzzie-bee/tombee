@@ -1,0 +1,45 @@
+---
+title: Automotive Data Management
+description: Data management platform for normalising and exporting automotive data from multiple sources.
+category: professional
+status: completed
+year: "2022"
+sortOrder: 99
+image: /projects/automotive-data-management.png
+featured: false
+tags:
+  - Angular
+  - Express
+  - PostgreSQL
+  - OpenAPI
+  - AWS
+links: []
+---
+
+## Overview
+
+This was a large project at an agency commissioned to build a robust data management platform for a large OEM Automotive client. It was an agile project with a team of developers, designers, QA, and project managers.
+
+At its core this project involved fetching large amounts of data from various client datasources, normalising that data into a useable format, then providing that data via an API for additional services to consume.
+
+## Tech Stack & Architecture
+
+ - Angular
+ - Express
+ - Microservices
+ - PostgreSQL
+ - CronJobs
+ - OpenAPI
+ - AWS
+
+This was a monorepo with an Express.js backend, an Angular frontend, an Express.js service for syncing from the datasources, and an external facing API for the export. We hosted dev, stage, and prod environments on AWS.
+
+## Key Features
+
+- Data collection and normalisation
+- Management console for viewing data and monitoring status
+- Export of data via API
+
+## Challenges & Learnings
+
+I came onto this project about halfway through as a developer brought on to tidy up the codebase, set up testing, and add requested features. I quickly onboarded and worked with the other developers to discuss approaches and architecture. From there I implemented numerous refactors, set up test suites for areas without coverage, improved export performance, and developed features such as adding new datasources and creating a rules engine parser.

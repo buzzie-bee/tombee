@@ -1,0 +1,78 @@
+---
+title: Automotive Configuration Management
+description: Data-driven configuration management platform built for a large automotive OEM.
+category: professional
+status: completed
+year: "2023 - 2024"
+sortOrder: 99
+image: /projects/automotive-configuration-management.png
+featured: true
+tags:
+  - Angular
+  - Express
+  - PostgreSQL
+  - Kafka
+  - Jest
+  - ESLint
+  - Prettier
+  - OpenAPI
+  - AWS
+  - TypeScript
+links: []
+---
+
+## Overview
+
+This was a large project at an agency commissioned to build a robust data-driven configuration management platform for a large OEM Automotive client. It was an agile project with a team of developers, designers, QA, and project managers.
+
+As tech lead I was the lead architect and lead developer for the most complex features. I worked closely with the project manager and clients to understand requirements, break them into epics and stories, and give sprint demos. On the development side, I focused on maintaining shared understanding of the product, excellent developer tooling and DX, high code quality, thorough code reviews, up-to-date documentation, good test coverage, and strong velocity throughout.
+
+At its core this project involved fetching large amounts of data from various client datasources, normalising that data into a useable format, allowing expert users to add overrides and additional configuration to the data, then produce large daily exports whenever there was a diff of the data to emit onto a Kafka topic for additional services to consume.
+
+We provided a dashboard for expert users to view all the data from those external sources and overlaid any modifications they had made to that data on the dashboard. They could filter data by various levels of granularity and create custom overrides at each level of granularity. We worked closely with the clients to make sure the UX was exactly what they wanted and matched the enterprise style guides. We handled change requests smoothly and managed to build several extra features such as excel exports/imports based on client requests.
+
+It was a large project with lots of different stakeholders, loosely defined initial requirements, and a very tight timeline but I'm happy to report that we completed it under time and under budget and received glowing reviews from our clients. The team, the clients, and the problem were all great.
+
+We successfully handed over the project to a client team to manage and maintain going forward. This involved providing detailed technical documentation, retrospectives on the development history, discussion over future features they had been tasked with adding, and familiarisation with the codebase.
+
+## Tech Stack & Architecture
+
+ - Angular
+ - Express.js API
+ - Several Express.js microservices
+ - PostgreSQL
+ - Kafka
+ - CronJobs
+ - Jest
+ - ESLint / Prettier
+ - OpenAPI + Codegen
+ - AWS
+
+This was a monorepo with an Express.js backend, an Angular frontend, an Express.js service for syncing from the datasources, and Lambda functions for the data aggregation and export. We hosted dev, stage, and prod environments on AWS.
+
+## Key Features
+
+- Data fetching and normalisation
+- Dashboard showing all data
+- Users can add nested timeseries overrides to data
+- Nightly data+overrides aggregation runner
+- Export to Kafka
+- Export to custom Excel
+- Import of overrides from Excel
+- OIDC auth and RBAC
+
+## Challenges & Learnings
+
+We faced large challenges early on but made smart upfront decisions that paid off long term. This project showed the importance of thinking through hard problems early and making simple, sensible decisions. We maintained excellent developer velocity throughout and our clients were delighted at how quickly we could add or adapt features.
+
+The first big challenge was sourcing and normalising all the data from the various datasources. We created a nightly runner that sent rate-limited requests to fetch and collate data, contending with datasources that were frequently down, slow, and used a variety of formats (REST APIs, SOAP APIs, different schemas). We used cursor and timescale-based query parameters to pull only diffs each night, keeping syncs straightforward. With lessons from a previous project we normalised the data into a useable form that our main API could pull from.
+
+The next big challenge was the client override system. We had various override types but the core logic was similar, so we built a base entity with the required fields for each type - meaning the aggregation implementation could be built once and work across all entity types. Overrides were scoped by the data they modified, the granularity level, the time period, draft/active status, and target export system. This upfront thinking meant that when the client later requested new override types, extending the base entity made it straightforward to add them.
+
+One of the bigger later challenges was the data aggregation pipeline. We opted to make it work first, get client feedback, then optimise. This meant we shipped our initial pipeline well ahead of production and could learn about issues with the datasources we were ingesting from early on. We heavily used advanced TypeScript features to make the aggregation logic work regardless of entity type, keeping the code DRY and maintainable.
+
+The initial brute-force approach ran queries for each override type and aggregated them in series on a single machine, taking about 12 hours for roughly 1,400 large exports across thousands of data points, dozens of override types, hundreds of languages, and five levels of overrides. Our target was one hour.
+
+The first win was optimising database round trips. The queries and indexes were already performant but the sheer volume of round trips was the bottleneck. I switched to bulk queries that gathered all relevant entities at once and sorted them in code - bringing us from 12 hours to about 3. Further profiling and algorithmic refactors got us to just under 2 hours.
+
+At that point the aggregation still ran in sequence. I wanted to parallelise it but didn't want to spin up multiple ECS containers for short-lived runners. AWS Lambda was the right fit. Using @vercel/ncc I compiled the aggregation code into a single compact executable optimised for serverless, set up an SQS queue to trigger a Lambda per aggregation, and configured parallel execution to avoid overwhelming the database. At about 15 parallel Lambdas we hit the sweet spot - a full aggregation now ran in under 10 minutes, a 1,200% speed improvement that delighted our clients.

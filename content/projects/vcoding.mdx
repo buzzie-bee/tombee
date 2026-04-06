@@ -1,0 +1,44 @@
+---
+title: VCoding
+description: A quick and dirty data entry tool for a PhD research team.
+category: personal
+status: archived
+year: "2020"
+sortOrder: 99
+image: /projects/vcoding.png
+featured: false
+tags:
+  - React
+  - Semantic UI
+  - Flask
+  - Python
+links: []
+---
+
+## Overview
+
+A team of PhD students and researchers asked me to help create a data entry tool to replace their manual Excel spreadsheet process. They were doing research into armed conflict onsets and had various conflict research datasets which needed to be linked, corrected, annotated, and tagged.
+
+Previously they were doing this by copying data between complex Excel spreadsheets and manually entering data into them. They had big issues with data integrity and were making very little progress towards producing a reliable dataset which they could use to perform their analysis.
+
+They asked me if I could create a local tool which let them feed in sources of data from Excel sheets, have a simple UI for users to link, annotate, and tag the data, track progress on the data entry, and then output standardised Excel sheets at the end.
+
+I iterated on a prototype until they had a working solution and they managed to finish the rest of the data entry in only a few weeks. The result of which led to several PhDs being written and the launch of a new conflict research dataset. It's a very quick and dirty solution but I'm proud of the small part I played in helping the students achieve their academic goals.
+
+## Tech Stack & Architecture
+
+ - React
+ - Semantic UI
+ - Flask
+
+This was a very simple set up where users would locally run the React app via html and a flask api wrapped in an executable.
+
+## Key Features
+
+- Reading from local Excel files
+- Dashboard with progress
+- Easy data entry UI
+
+## Challenges & Learnings
+
+This was a quick little project but I still learned a lot about what not to do when building solutions like this. In the future I'd probably either host this and provide UI elements for users to upload and manage the source files and outputs, or I'd build it in something like electron or tauri where it's a self contained app. Trying to do tech support to run everything and help users on Windows, Mac, and Linux was quite painful.
