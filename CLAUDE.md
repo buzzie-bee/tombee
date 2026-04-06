@@ -1,12 +1,13 @@
 # tombee.io
 
-Personal portfolio / landing page built with Next.js (App Router) and shadcn/ui.
+Personal portfolio and blog built with Next.js (App Router) and shadcn/ui.
 
 ## Stack
 
-- Next.js 15 (App Router, TypeScript)
+- Next.js 16 (App Router, TypeScript)
 - Tailwind CSS v4
-- shadcn/ui components
+- shadcn/ui components (Base UI, not Radix)
+- pnpm
 
 ## Rules
 
@@ -14,12 +15,15 @@ Personal portfolio / landing page built with Next.js (App Router) and shadcn/ui.
 - **No `any` types**: Try proper types, generics, type guards first. Ask before using `any`.
 - **Verify changes**: After non-trivial changes, run lint, type-check, and tests. All must pass before considering work done.
 - **shadcn/ui**: Always use the shadcn CLI to add/update components. Never hand-write them.
+- **Routing**: Use the typed route helper (`src/lib/navigation/routes.ts`) — never hardcode route paths in components.
 
 ## Commands
 
-- `npm run dev` — start dev server
-- `npm run build` — production build
-- `npm run lint` — run linter
+- `pnpm dev` — start dev server
+- `pnpm build` — production build
+- `pnpm lint` — run linter
+- `pnpm format` — format all files with Prettier
+- `pnpm format:check` — check formatting without writing
 
 ## PRDs
 

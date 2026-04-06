@@ -16,6 +16,7 @@ out
 # Misc
 .DS_Store
 *.pem
+*.tsbuildinfo
 
 # Debug
 npm-debug.log*
@@ -61,6 +62,19 @@ temp/
 # archive & backup
 /archive
 
-# AI 
+# AI tooling
 .claude
+.claude*
+.mcp.json
+CLAUDE.md
 .cursor
+.cursorrules
+.cursorignore
+.copilot
+.github/copilot-*
+.codeium
+.continue
+.aider*
+.windsurf
+.bolt
+.v0

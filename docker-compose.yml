@@ -1,0 +1,19 @@
+services:
+  tombee-mailhog:
+    container_name: tombee-mailhog
+    image: mailhog/mailhog
+    deploy:
+      resources:
+        limits:
+          memory: 500M
+    logging:
+      driver: 'none'
+    ports:
+      - 1025:1025 # smtp server
+      - 8025:8025 # web ui
+    networks:
+      - tombee-network
+
+networks:
+  tombee-network:
+    name: tombee-network
