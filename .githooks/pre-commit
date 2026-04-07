@@ -1,0 +1,8 @@
+#!/bin/sh
+set -e
+
+# Load nvm so pnpm/node are on PATH (needed for GUI git clients)
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+pnpm format:check

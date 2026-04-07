@@ -1,0 +1,44 @@
+---
+title: Vehicle Document Scanner
+description: Proof of concept system for scanning vehicle documents via mobile and extracting data with OCR.
+category: professional
+status: completed
+year: '2022'
+sortOrder: 99
+image: /projects/vehicle-document-scanner.png
+featured: false
+tags:
+  - React
+  - Express
+  - PostgreSQL
+  - OpenAPI
+  - AWS
+links: []
+---
+
+## Overview
+
+A client was interested in adding vehicle document scanning to their systems and were not happy with existing solutions. They requested we build a proof of concept system for them to adapt and adopt.
+
+They wanted their users to be able to click on a button on their application / website, be shown a QR code, scan that QR code on their phone, be prompted to take a picture of a document, perform OCR and data normalisation on the scanned document, and have that data be sent as a webhook to their APIs.
+
+## Tech Stack & Architecture
+
+- React
+- Express
+- PostgreSQL
+- OpenAPI
+- AWS
+
+## Key Features
+
+- User dashboard
+- QR-based shared auth
+- Mobile view for scanning document
+- OCR
+
+## Challenges & Learnings
+
+This was a fun little project and it was quite cool setting up auth sharing from desktop to mobile via scanning a QR code. We were inspired by tools like WhatsApp and Discord which allow users to login via a QR code.
+
+One big challenge was the OCR and normalisation. Some of these documents are printed on terrible quality paper and this was before we had today's AI models for parsing images and outputting data. We had to implement a lot of rules and do manual data manipulation to extract the correct info, then allow users to make corrections to the data on their computer/phone before submitting the results. Having worked with more recent models for parsing documents and images I'm sure we could build a more robust system for a fraction of the effort.

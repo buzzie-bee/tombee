@@ -1,0 +1,41 @@
+---
+title: AR Assembly Bench
+description: A PoC for an AR assembly bench for manufacturers.
+category: professional
+status: completed
+year: '2019'
+sortOrder: 99
+image: /projects/ar-assembly-bench.png
+featured: false
+tags:
+  - Python
+links: []
+---
+
+## Overview
+
+When working in manufacturing we were supplying and programming some advanced Keyence XR vision systems for a client to use on their manufacturing assembly benches. The client had a desire to use this system to create an Augmented Reality (AR) system for their assembly benches using the XR system and a projector.
+
+Previously the manufacturer had to manufacture custom fixtures for operators to place items in and assemble items. They had a lot of different manufacturing runs and so spent considerable time and money on building fixtures.
+
+They asked me to develop a proof of concept implementation of this idea to show the capabilities of the system.
+
+The idea was that the vision system would detect objects and then the projector would put an overlay around those objects on the bench with information about where they should be assembled. This would allow the manufacturer to have workbenches be as flexible as possible by keeping the work surface clear and programmatically guiding the operator through the assembly steps.
+
+We built the POC with some initial item detection and basic outlines and user interface for the client to show the concept was viable.
+
+## Tech Stack & Architecture
+
+- Python
+
+## Key Features
+
+- Integration with XR vision system via RS232
+- Generation of AR overlays
+- Rudimentary manufacturing steps UI
+
+## Challenges & Learnings
+
+This was a fun little project and the client were really happy with the capabilities of the machine vision system.
+
+One day I might return to this idea and put together a robust solution for this problem using modern object detection systems running on low cost hardware. I believe it's something that smaller manufacturers will benefit from.
