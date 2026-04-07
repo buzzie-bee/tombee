@@ -25,13 +25,16 @@ const components = {
   li: (props: React.ComponentProps<'li'>) => (
     <li className="text-foreground/85 leading-relaxed" {...props} />
   ),
-  a: (props: React.ComponentProps<'a'>) => (
+  a: ({ children, ...props }: React.ComponentProps<'a'>) => (
     <a
       className="text-primary underline underline-offset-4 hover:text-primary/80"
       target="_blank"
       rel="noopener noreferrer"
       {...props}
-    />
+    >
+      {children}
+      <span className="sr-only"> (opens in new tab)</span>
+    </a>
   ),
   blockquote: (props: React.ComponentProps<'blockquote'>) => (
     <blockquote

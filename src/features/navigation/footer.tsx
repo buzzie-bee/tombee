@@ -9,7 +9,7 @@ export function Footer() {
           © {new Date().getFullYear()} Tom Bee
         </p>
 
-        <nav className="flex items-center gap-4">
+        <nav aria-label="Footer" className="flex items-center gap-4">
           <Link
             href={appPaths.projects}
             className="font-mono text-xs text-muted-foreground transition-colors hover:text-foreground"
@@ -34,7 +34,7 @@ export function Footer() {
             rel="noopener noreferrer"
             className="font-mono text-xs text-muted-foreground transition-colors hover:text-foreground"
           >
-            GitHub
+            GitHub<span className="sr-only"> (opens in new tab)</span>
           </a>
           <a
             href="https://www.linkedin.com/in/tombee"
@@ -42,7 +42,7 @@ export function Footer() {
             rel="noopener noreferrer"
             className="font-mono text-xs text-muted-foreground transition-colors hover:text-foreground"
           >
-            LinkedIn
+            LinkedIn<span className="sr-only"> (opens in new tab)</span>
           </a>
         </nav>
       </div>

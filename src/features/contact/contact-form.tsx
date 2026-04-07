@@ -50,7 +50,7 @@ export function ContactForm() {
 
   if (status === 'success') {
     return (
-      <div className="flex flex-col gap-2 rounded-lg bg-card p-6">
+      <div role="status" className="flex flex-col gap-2 rounded-lg bg-card p-6">
         <p className="font-mono text-sm font-semibold">Message sent!</p>
         <p className="text-sm text-muted-foreground">
           Thanks for reaching out. I&apos;ll get back to you as soon as I can.
@@ -93,9 +93,9 @@ export function ContactForm() {
         />
       </div>
       {status === 'error' && (
-        <p className="text-sm text-destructive">{errorMessage}</p>
+        <p role="alert" className="text-sm text-destructive">{errorMessage}</p>
       )}
-      <Button type="submit" size="lg" className="mt-2 self-start" disabled={status === 'submitting'}>
+      <Button type="submit" size="lg" className="mt-2 self-start" disabled={status === 'submitting'} aria-busy={status === 'submitting'}>
         {status === 'submitting' ? 'Sending...' : 'Send Message'}
       </Button>
     </form>

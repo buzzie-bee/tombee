@@ -28,6 +28,7 @@ export function CategoryFilter({ active, availableCategories, onChange }: Catego
         <button
           key={cat.value}
           onClick={() => onChange(cat.value)}
+          aria-pressed={active === cat.value}
           className={cn(
             'shrink-0 cursor-pointer rounded-full px-4 py-1.5 font-mono text-sm transition-colors',
             active === cat.value

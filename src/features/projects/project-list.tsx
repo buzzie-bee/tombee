@@ -26,7 +26,7 @@ export function ProjectList({ projects }: ProjectListProps) {
   return (
     <div className="flex flex-col gap-8">
       <CategoryFilter active={active} availableCategories={availableCategories} onChange={setActive} />
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+      <div aria-live="polite" className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         {filtered.map((project) => (
           <ProjectCardFull key={project.slug} {...project} />
         ))}

@@ -7,7 +7,7 @@ import { ContactSection } from '@/features/contact/contact-section';
 
 export default function HomePage() {
   return (
-    <main className="flex-1">
+    <main id="main-content" className="flex-1">
       <Hero />
       <FeaturedProjects />
       <PreferredStack />

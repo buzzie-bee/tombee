@@ -39,7 +39,7 @@ export default async function BlogPostPage({ params }: { params: Params }) {
   }
 
   return (
-    <main className="flex-1">
+    <main id="main-content" className="flex-1">
       <article className="mx-auto max-w-3xl px-6 py-16 md:py-24">
         <Link
           href={toHref({ name: 'blog' })}

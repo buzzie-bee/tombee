@@ -64,7 +64,7 @@ export function ProjectDetailPage({ project }: { project: ProjectContent }) {
                 rel="noopener noreferrer"
                 className="inline-flex h-8 cursor-pointer items-center justify-center rounded-4xl border border-border bg-input/30 px-3 font-mono text-sm transition-colors hover:bg-input/50 hover:text-foreground"
               >
-                {link.label} ↗
+                {link.label} ↗<span className="sr-only"> (opens in new tab)</span>
               </a>
             ))}
           </div>

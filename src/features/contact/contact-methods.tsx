@@ -39,13 +39,18 @@ export function ContactMethods() {
           className="group flex items-center gap-4 rounded-lg bg-card p-4 transition-colors duration-300 hover:bg-muted"
         >
           <div className="flex h-10 w-10 items-center justify-center rounded-md bg-muted group-hover:bg-background">
-            <method.icon className="h-5 w-5 text-muted-foreground group-hover:text-primary" />
+            <method.icon aria-hidden="true" className="h-5 w-5 text-muted-foreground group-hover:text-primary" />
           </div>
           <div className="flex flex-col">
             <span className="font-mono text-xs font-medium uppercase tracking-widest text-muted-foreground">
               {method.label}
             </span>
-            <span className="text-sm group-hover:text-primary">{method.value}</span>
+            <span className="text-sm group-hover:text-primary">
+              {method.value}
+              {!method.href.startsWith('mailto:') && (
+                <span className="sr-only"> (opens in new tab)</span>
+              )}
+            </span>
           </div>
         </a>
       ))}

@@ -11,10 +11,11 @@ export function ProjectNav({ currentSlug }: { currentSlug: string }) {
   if (!prev && !next) return null;
 
   return (
-    <nav className="flex items-stretch gap-4">
+    <nav aria-label="Project navigation" className="flex items-stretch gap-4">
       {prev ? (
         <Link
           href={toHref({ name: 'projectDetail', slug: prev.slug })}
+          aria-label={`Previous project: ${prev.frontmatter.title}`}
           className="group flex flex-1 flex-col gap-1 rounded-lg bg-card p-5 transition-colors duration-300 hover:bg-muted"
         >
           <span className="font-mono text-xs text-muted-foreground">← Previous</span>
@@ -29,6 +30,7 @@ export function ProjectNav({ currentSlug }: { currentSlug: string }) {
       {next ? (
         <Link
           href={toHref({ name: 'projectDetail', slug: next.slug })}
+          aria-label={`Next project: ${next.frontmatter.title}`}
           className="group flex flex-1 flex-col items-end gap-1 rounded-lg bg-card p-5 text-right transition-colors duration-300 hover:bg-muted"
         >
           <span className="font-mono text-xs text-muted-foreground">Next →</span>

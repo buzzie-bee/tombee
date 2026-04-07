@@ -37,7 +37,7 @@ export default async function ProjectPage({ params }: { params: Params }) {
   }
 
   return (
-    <main className="flex-1">
+    <main id="main-content" className="flex-1">
       <ProjectDetailPage project={project} />
     </main>
   );

@@ -24,7 +24,7 @@ export function ProjectCard({ slug, title, description, image, priority }: Proje
             fill
             sizes="(min-width: 1024px) 384px, (min-width: 640px) 50vw, 100vw"
             priority={priority}
-            className="object-cover transition-transform duration-300 group-hover:scale-105"
+            className="object-cover motion-safe:transition-transform motion-safe:duration-300 motion-safe:group-hover:scale-105"
           />
         </div>
       ) : (

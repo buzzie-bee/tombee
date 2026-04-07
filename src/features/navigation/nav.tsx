@@ -21,7 +21,7 @@ export function Nav() {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-sm">
-      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
+      <nav aria-label="Main" className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
         <Link
           href={appPaths.home}
           className="font-mono text-lg font-bold tracking-tight"
@@ -35,6 +35,7 @@ export function Nav() {
             <Link
               key={link.href}
               href={link.href}
+              aria-current={pathname.startsWith(link.href) ? 'page' : undefined}
               className="rounded-lg px-3 py-2 font-mono text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
               {link.label}
@@ -46,7 +47,7 @@ export function Nav() {
             rel="noopener noreferrer"
             className="rounded-lg px-3 py-2 font-mono text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
-            CV
+            CV<span className="sr-only"> (opens in new tab)</span>
           </a>
           <ThemeToggle />
         </div>
@@ -56,9 +57,14 @@ export function Nav() {
           <button
             onClick={() => setOpen(!open)}
             className="cursor-pointer rounded-lg p-2 text-muted-foreground transition-colors hover:text-foreground"
-            aria-label="Toggle menu"
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-expanded={open}
           >
-            {open ? <IconX className="h-5 w-5" /> : <IconMenu2 className="h-5 w-5" />}
+            {open ? (
+              <IconX aria-hidden="true" className="h-5 w-5" />
+            ) : (
+              <IconMenu2 aria-hidden="true" className="h-5 w-5" />
+            )}
           </button>
         </div>
       </nav>
@@ -71,6 +77,7 @@ export function Nav() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
+                aria-current={pathname.startsWith(link.href) ? 'page' : undefined}
                 className={`rounded-lg px-3 py-2 font-mono text-sm transition-colors ${
                   pathname.startsWith(link.href)
                     ? 'text-foreground'
@@ -87,7 +94,7 @@ export function Nav() {
               onClick={() => setOpen(false)}
               className="rounded-lg px-3 py-2 font-mono text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
-              CV
+              CV<span className="sr-only"> (opens in new tab)</span>
             </a>
           </div>
         </div>
