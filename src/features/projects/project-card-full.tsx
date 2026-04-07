@@ -10,6 +10,7 @@ interface ProjectCardFullProps {
   tags: string[];
   year: string;
   image?: string;
+  priority?: boolean;
 }
 
 export function ProjectCardFull({
@@ -19,6 +20,7 @@ export function ProjectCardFull({
   tags,
   year,
   image,
+  priority,
 }: ProjectCardFullProps) {
   return (
     <Link
@@ -32,6 +34,7 @@ export function ProjectCardFull({
             alt={title}
             fill
             sizes="(min-width: 640px) 50vw, 100vw"
+            priority={priority}
             className="object-cover motion-safe:transition-transform motion-safe:duration-300 motion-safe:group-hover:scale-105"
           />
         </div>

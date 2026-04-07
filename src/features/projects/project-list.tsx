@@ -31,8 +31,8 @@ export function ProjectList({ projects }: ProjectListProps) {
         onChange={setActive}
       />
       <div aria-live="polite" className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-        {filtered.map((project) => (
-          <ProjectCardFull key={project.slug} {...project} />
+        {filtered.map((project, index) => (
+          <ProjectCardFull key={project.slug} {...project} priority={index < 2} />
         ))}
       </div>
     </div>
