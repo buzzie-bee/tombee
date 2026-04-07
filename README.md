@@ -11,8 +11,9 @@ Personal portfolio and blog built with Next.js 16 (App Router), Tailwind CSS v4,
 ## Getting started
 
 ```bash
-# Install dependencies
+# Install dependencies and set up git hooks
 pnpm install
+pnpm setup:hooks
 
 # Copy environment config (defaults work with local MailHog)
 cp .env.example .env.local
@@ -24,19 +25,24 @@ docker compose up -d tombee-mailhog
 pnpm dev
 ```
 
+`pnpm setup:hooks` configures git to use the project's `.githooks/` directory, which includes:
+
+- **pre-commit**: format check (Prettier)
+- **pre-push**: format check, lint (ESLint), and type check (TypeScript)
+
 Open http://localhost:3000 for the site and http://localhost:8025 for the MailHog UI to view captured contact form emails.
 
 ## Scripts
 
-| Command              | Description                          |
-| -------------------- | ------------------------------------ |
-| `pnpm dev`           | Start dev server                     |
-| `pnpm build`         | Production build (standalone output) |
-| `pnpm lint`          | Run ESLint                           |
-| `pnpm format`        | Format with Prettier                 |
-| `pnpm format:check`  | Check formatting without writing     |
-| `pnpm test:e2e`      | Run Playwright E2E tests             |
-| `pnpm test:e2e:ui`   | Run E2E tests in interactive UI mode |
+| Command             | Description                          |
+| ------------------- | ------------------------------------ |
+| `pnpm dev`          | Start dev server                     |
+| `pnpm build`        | Production build (standalone output) |
+| `pnpm lint`         | Run ESLint                           |
+| `pnpm format`       | Format with Prettier                 |
+| `pnpm format:check` | Check formatting without writing     |
+| `pnpm test:e2e`     | Run Playwright E2E tests             |
+| `pnpm test:e2e:ui`  | Run E2E tests in interactive UI mode |
 
 ## Docker
 
