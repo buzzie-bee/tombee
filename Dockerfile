@@ -7,7 +7,7 @@ RUN corepack enable pnpm
 
 WORKDIR /app
 
-COPY package.json pnpm-lock.yaml ./
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 
 RUN --mount=type=cache,target=/root/.local/share/pnpm/store \
   pnpm install --frozen-lockfile
@@ -45,8 +45,6 @@ RUN chown node:node .next
 COPY --from=builder --chown=node:node /app/.next/standalone ./
 COPY --from=builder --chown=node:node /app/.next/static ./.next/static
 
-RUN cd /tmp && npm init -y && npm install sharp && cp -r node_modules/sharp /app/node_modules/sharp && rm -rf /tmp/node_modules /tmp/package.json /tmp/package-lock.json
-ENV NEXT_SHARP_PATH=/app/node_modules/sharp
 
 USER node
 
