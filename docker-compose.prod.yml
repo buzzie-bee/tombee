@@ -1,6 +1,6 @@
 services:
   web:
-    image: ghcr.io/tombee/tombee:latest
+    image: ghcr.io/buzzie-bee/tombee:latest
     restart: unless-stopped
     healthcheck:
       test:
