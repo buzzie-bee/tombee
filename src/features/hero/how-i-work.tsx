@@ -17,10 +17,9 @@ export function HowIWork() {
             together to ship the best possible solutions.
           </p>
           <p>
-            When building I focus on developer velocity by building great tooling for shipping
-            clean code fast, architecting systems that scale effortlessly, designing great UX to
-            delight users, and keeping feedback loops tight so we&apos;re always building the right
-            thing.
+            When building I focus on developer velocity by building great tooling for shipping clean
+            code fast, architecting systems that scale effortlessly, designing great UX to delight
+            users, and keeping feedback loops tight so we&apos;re always building the right thing.
           </p>
         </div>
       </div>

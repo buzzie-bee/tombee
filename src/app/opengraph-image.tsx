@@ -67,85 +67,83 @@ export default async function OpengraphImage() {
   const geistMonoMedium = decodeBase64Font(GEIST_MONO_MEDIUM_BASE64);
 
   return new ImageResponse(
-    (
-      <div
-        style={{
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-          padding: '80px',
-          backgroundColor: BG,
-          color: FG,
-        }}
-      >
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <div
-            style={{
-              width: '72px',
-              height: '8px',
-              backgroundColor: PRIMARY,
-              borderRadius: '9999px',
-              marginBottom: '32px',
-            }}
-          />
-          <div
-            style={{
-              fontFamily: 'Geist',
-              fontWeight: 700,
-              fontSize: '180px',
-              letterSpacing: '-6px',
-              lineHeight: 1,
-              color: FG,
-            }}
-          >
-            {title}
-          </div>
-          <div
-            style={{
-              fontFamily: 'Geist Mono',
-              fontWeight: 500,
-              marginTop: '28px',
-              fontSize: '40px',
-              color: PRIMARY,
-            }}
-          >
-            {tagline}
-          </div>
-        </div>
-
+    <div
+      style={{
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        padding: '80px',
+        backgroundColor: BG,
+        color: FG,
+      }}
+    >
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
         <div
           style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'flex-end',
-            fontSize: '28px',
-            color: MUTED,
+            width: '72px',
+            height: '8px',
+            backgroundColor: PRIMARY,
+            borderRadius: '9999px',
+            marginBottom: '32px',
+          }}
+        />
+        <div
+          style={{
+            fontFamily: 'Geist',
+            fontWeight: 700,
+            fontSize: '180px',
+            letterSpacing: '-6px',
+            lineHeight: 1,
+            color: FG,
           }}
         >
-          <div
-            style={{
-              fontFamily: 'Geist',
-              fontWeight: 400,
-              maxWidth: '720px',
-              lineHeight: 1.4,
-            }}
-          >
-            {description}
-          </div>
-          <div
-            style={{
-              fontFamily: 'Geist Mono',
-              fontWeight: 700,
-              color: FG,
-            }}
-          >
-            {brand}
-          </div>
+          {title}
+        </div>
+        <div
+          style={{
+            fontFamily: 'Geist Mono',
+            fontWeight: 500,
+            marginTop: '28px',
+            fontSize: '40px',
+            color: PRIMARY,
+          }}
+        >
+          {tagline}
         </div>
       </div>
-    ),
+
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'flex-end',
+          fontSize: '28px',
+          color: MUTED,
+        }}
+      >
+        <div
+          style={{
+            fontFamily: 'Geist',
+            fontWeight: 400,
+            maxWidth: '720px',
+            lineHeight: 1.4,
+          }}
+        >
+          {description}
+        </div>
+        <div
+          style={{
+            fontFamily: 'Geist Mono',
+            fontWeight: 700,
+            color: FG,
+          }}
+        >
+          {brand}
+        </div>
+      </div>
+    </div>,
     {
       ...size,
       fonts: [

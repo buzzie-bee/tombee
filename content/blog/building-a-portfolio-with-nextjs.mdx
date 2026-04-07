@@ -1,7 +1,7 @@
 ---
 title: Building My Portfolio Site with Claude Code
 summary: I was skeptical about AI coding tools. Then I rebuilt my portfolio with one. Here's what actually worked, what didn't, and why I'm not "vibe coding".
-date: "2026-04-06"
+date: '2026-04-06'
 published: true
 ---
 
@@ -17,16 +17,15 @@ It's safe to say: I wasn't impressed. The promise was improved productivity but 
 
 ## Finding a workflow that works
 
-Despite the frustration I kept experimenting as new tools were launched. I gave them a fair shot by testing them on small projects. I noticed that some tools were better than others, some tools were *becoming* better, and knew that even if it was rubbish now I could see the trend line approaching 'good enough' eventually.
+Despite the frustration I kept experimenting as new tools were launched. I gave them a fair shot by testing them on small projects. I noticed that some tools were better than others, some tools were _becoming_ better, and knew that even if it was rubbish now I could see the trend line approaching 'good enough' eventually.
 
-I've had a few ideas (which I'll be writing about once they're deployed) for tools and projects which I'd been putting off because they would require a period of time for deep focus and deep wells of motivation. I've been hearing so much about Claude Code that after failing miserably with some other tools to produce code anywhere near what I actually wanted I thought I'd give it a go on these ideas. The difference was night and day. It was still pretty bad, but if you spent enough time defining requirements and implementation details, setting up standards, and building tooling it could *actually* deliver readable maintainable code.
+I've had a few ideas (which I'll be writing about once they're deployed) for tools and projects which I'd been putting off because they would require a period of time for deep focus and deep wells of motivation. I've been hearing so much about Claude Code that after failing miserably with some other tools to produce code anywhere near what I actually wanted I thought I'd give it a go on these ideas. The difference was night and day. It was still pretty bad, but if you spent enough time defining requirements and implementation details, setting up standards, and building tooling it could _actually_ deliver readable maintainable code.
 
 Maybe the hype has some small basis in reality? I thought I'd better experiment further.
 
-I've recently gone freelance and desperately needed to rebuild my portfolio site (the old one was a CRA hosted on Firebase which was functional but horrendously outdated). I needed a professional portfolio with a detailed breakdown on my big projects and space for writing about things I'm interested in to show my thought process. 
+I've recently gone freelance and desperately needed to rebuild my portfolio site (the old one was a CRA hosted on Firebase which was functional but horrendously outdated). I needed a professional portfolio with a detailed breakdown on my big projects and space for writing about things I'm interested in to show my thought process.
 
 I decided to take Claude for a proper test drive to see how it handles frontend development (my previous experiments were all mostly backend work). This was a full rebuild from scratch. Next.js 16 (App Router), Tailwind CSS v4, shadcn/ui (with Base UI), MDX-driven content, SEO, and self hosted on my own VPS.
-
 
 ## I'm not "vibe" coding
 
@@ -40,19 +39,19 @@ I get the appeal of removing the barriers to entry for normal non-techy people, 
 
 I'm not 'vibe coding' or 'prompt engineering'. I'm not begging the model to pretend it's a senior dev.
 
-What I'm doing is closer to how a senior engineer works with a very eager junior developer. One who has decent Google-fu and can write code extremely fast but who needs constant direction and thorough code review. 
+What I'm doing is closer to how a senior engineer works with a very eager junior developer. One who has decent Google-fu and can write code extremely fast but who needs constant direction and thorough code review.
 
 I architect the solution. I decide the file structure, the patterns, the dependencies, the tooling, the definition of done. I tell it what to build and how. Then I review everything it produces, line by line, and either approve it, ask for changes, or rewrite sections myself.
 
 The AI doesn't make architectural decisions. It doesn't choose libraries. It doesn't decide how components are structured. It doesn't define 'done'. It doesn't choose tradeoffs.
 
-That's my job. 
+That's my job.
 
 Its job is to take clear direction and produce code that I then verify.
 
 ## Setting the rules
 
-Even with me in the 'driver's seat' the current models *still* need a lot of handholding and guidance. Luckily the tooling for doing this is getting better and it's now possible to structure a codebase and enforce rules so that the models produce "not-bad" results first time.
+Even with me in the 'driver's seat' the current models _still_ need a lot of handholding and guidance. Luckily the tooling for doing this is getting better and it's now possible to structure a codebase and enforce rules so that the models produce "not-bad" results first time.
 
 The first thing I did was write a CLAUDE.md file. This is a markdown file in the project root that acts as a constitution for the AI that gets loaded into context at the start of each prompt.
 
@@ -66,8 +65,7 @@ Mine includes rules like:
 - **Feature branches only.** No direct commits to main. No commits, merges, or pushes without explicit permission.
 - **Always use the shadcn CLI.** Never hand-write shadcn components.
 
-
-These guardrails exist because otherwise the model descended into sloppiness. The models don't remember most of the 'don't do that again' prompts but many issues can be solved with tooling rather than configuration. It's only situations like 'no `any` types' that really need to be run whenever it generates code. 
+These guardrails exist because otherwise the model descended into sloppiness. The models don't remember most of the 'don't do that again' prompts but many issues can be solved with tooling rather than configuration. It's only situations like 'no `any` types' that really need to be run whenever it generates code.
 
 These models are lazy, they'll use an escape hatch instead of doing things properly unless you force them into line.
 
@@ -92,27 +90,27 @@ I've been building lots of little tools like this to enforce correctness and sta
 
 ## The working loop
 
-The biggest thing I learned is that the quality of AI-assisted development is almost entirely determined by your process and partly by the quality of the tool. 
+The biggest thing I learned is that the quality of AI-assisted development is almost entirely determined by your process and partly by the quality of the tool.
 
 Here's the loop that works for me:
 
-**1. Discuss the approach.** Before any code is written I talk through the problem with the AI. I write a detailed outline of the feature and requirements then I ask it to grill me relentlessly until we reached a shared "understanding" of the requirements. Sometimes it even raises issues or things that I hadn't thought of myself which is pretty nifty. Often here is where you discover it was planning to slop it up, however you can catch it during the interrogation process and force it down the correct path. 
+**1. Discuss the approach.** Before any code is written I talk through the problem with the AI. I write a detailed outline of the feature and requirements then I ask it to grill me relentlessly until we reached a shared "understanding" of the requirements. Sometimes it even raises issues or things that I hadn't thought of myself which is pretty nifty. Often here is where you discover it was planning to slop it up, however you can catch it during the interrogation process and force it down the correct path.
 
 **2. Make a plan.** Plan mode is the only thing that keeps me using AI. They just simply aren't good enough right now without a solid plan. However, with a solid plan, they can be pretty damn good. I take the learnings and understanding from the discussion and ask it to write up a solid implementation plan based on all my guidance and feedback. We've already clarified what I want, how it should be structured, what patterns to follow, what should be in v0 and v1, etc so it can generally write a pretty detailed plan up. I'll then correct any issues or clarify any gaps to make sure it's the right plan. If it's complex I'll tell it to break the big task down into smaller chunks.
 
 **3. Build.** Here's where we follow the plan. I usually let the agent work in phases so I can review and course correct as it goes. They are pretty fast at writing code, much faster than me, but need that planning phase to actually excel. With a good plan the output is usually about 80% right on the first pass.
 
-**4. Review and edit.** I go through everything. Does it work? Did it follow the plan? Did it write clean code? Did it add anything I didn't ask for? Did it do an unsecure bare minimum implementation? That last one is the most common. Ignoring config getters and just rawdogging unvalidated process.env everywhere. 
+**4. Review and edit.** I go through everything. Does it work? Did it follow the plan? Did it write clean code? Did it add anything I didn't ask for? Did it do an unsecure bare minimum implementation? That last one is the most common. Ignoring config getters and just rawdogging unvalidated process.env everywhere.
 
 This loop sounds simple but sticking to it rigorously is what makes AI-assisted development actually productive rather than chaotic.
 
-You spend a lot of time upfront defining a PRD and planning the solution. Then the AI blitzes through the plan and implements it. Then you do a thorough code review and ask it to make revisions. It lets you the human operator be in control of the quality of the codebase and it's just using the same approach we've been using as developers already. 
+You spend a lot of time upfront defining a PRD and planning the solution. Then the AI blitzes through the plan and implements it. Then you do a thorough code review and ask it to make revisions. It lets you the human operator be in control of the quality of the codebase and it's just using the same approach we've been using as developers already.
 
 Tight - loose - tight feedback loops, clear direction, high standards, and great tooling works whether it's a junior dev or an agent.
 
 ## Better than Google
 
-This wasn't a particularly complicated site but on this site and on my other side projects I've found it incredibly helpful to bounce implementation ideas around as part of the discovery/planning phase. 
+This wasn't a particularly complicated site but on this site and on my other side projects I've found it incredibly helpful to bounce implementation ideas around as part of the discovery/planning phase.
 
 Sometimes it's just small things like "you are rawdogging process.env, would zod work as a runtime env validator on next?" with an immediate response of "Yes, here's how I'd implement it" which is more time efficient than me looking up the docs to check.
 
@@ -155,15 +153,15 @@ Finally when it said a feature was 'done' and wanted to move on I'd have to forc
 
 ## Was it worth it?
 
-Yes. I wouldn't say I'm a convert but I'm not as cynical as I used to be. 
+Yes. I wouldn't say I'm a convert but I'm not as cynical as I used to be.
 
-Despite the hype the AI didn't make me 10x faster. But if I can get a modest 2x performance boost whilst spending more time doing the interesting thinking and focussing on architecting a solution I call that a win. 
+Despite the hype the AI didn't make me 10x faster. But if I can get a modest 2x performance boost whilst spending more time doing the interesting thinking and focussing on architecting a solution I call that a win.
 
 It didn't write the hard parts for me. It didn't do the thinking. It wasn't just "vibes". What it did was make it easier to make a plan and then quickly iterate on that plan until it met my definition of done. It didn't complain about refactors, it didn't argue with me that the sloppy pattern it had adopted was 'good enough', it just got on with it.
 
-I love coding and find great joy in solving interesting problems, but most of the time it's just implementing an architecture using standard boilerplate. This tool for this job let me focus on the interesting architecture, design decisions, setting coding standards, writing the actual content, etc. And that's fine by me. That's the work I enjoy and the work that actually determines whether a project is good. 
+I love coding and find great joy in solving interesting problems, but most of the time it's just implementing an architecture using standard boilerplate. This tool for this job let me focus on the interesting architecture, design decisions, setting coding standards, writing the actual content, etc. And that's fine by me. That's the work I enjoy and the work that actually determines whether a project is good.
 
-If you're considering using AI coding tools, my advice is: don't believe the hype. I do think that we're getting to the point where it can be a net positive for productivity though so be cautiously optimistic. 
+If you're considering using AI coding tools, my advice is: don't believe the hype. I do think that we're getting to the point where it can be a net positive for productivity though so be cautiously optimistic.
 
 Set the rules upfront, make a plan, decide which iterative loop works for you, and never let it go rogue. The tool is only as good as the process around it.
 

@@ -34,7 +34,7 @@ export function ProjectDetailPage({ project }: { project: ProjectContent }) {
       </Link>
 
       <div className="mt-8 flex flex-col gap-4">
-        <div className="flex items-baseline justify-between gap-4">
+        <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
           <h1 className="font-mono text-4xl font-bold tracking-tight md:text-5xl">
             {frontmatter.title}
           </h1>

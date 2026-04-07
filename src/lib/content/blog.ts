@@ -48,7 +48,9 @@ export function getAllBlogPosts(): BlogPost[] {
     .map((slug) => getBlogPostBySlug(slug))
     .filter((p): p is BlogPost => p !== null)
     .filter((p) => p.frontmatter.published !== false)
-    .sort((a, b) => new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime());
+    .sort(
+      (a, b) => new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime(),
+    );
 }
 
 export function getRecentBlogPosts(count: number = 3): BlogPost[] {

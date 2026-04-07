@@ -70,106 +70,104 @@ export default async function ProjectOpengraphImage({
   const geistMonoBoldBrand = decodeBase64Font(GEIST_MONO_BOLD_BASE64);
 
   return new ImageResponse(
-    (
+    <div
+      style={{
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        position: 'relative',
+        backgroundColor: '#0a0a0a',
+      }}
+    >
+      {/* Project hero image - full bleed */}
+      {imageDataUrl && (
+        <img
+          src={imageDataUrl}
+          alt=""
+          width={1200}
+          height={630}
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+          }}
+        />
+      )}
+
+      {/* Gradient overlay - dark at bottom for text legibility */}
       <div
         style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
           width: '100%',
           height: '100%',
           display: 'flex',
-          position: 'relative',
-          backgroundColor: '#0a0a0a',
+          background:
+            'linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.92) 100%)',
+        }}
+      />
+
+      {/* Content layer */}
+      <div
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'flex-end',
+          padding: '80px',
         }}
       >
-        {/* Project hero image - full bleed */}
-        {imageDataUrl && (
-          <img
-            src={imageDataUrl}
-            alt=""
-            width={1200}
-            height={630}
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-            }}
-          />
-        )}
-
-        {/* Gradient overlay - dark at bottom for text legibility */}
         <div
           style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            display: 'flex',
-            background:
-              'linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.92) 100%)',
-          }}
-        />
-
-        {/* Content layer */}
-        <div
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'flex-end',
-            padding: '80px',
+            fontFamily: 'Geist Mono',
+            fontWeight: 700,
+            fontSize: '56px',
+            letterSpacing: '-1px',
+            lineHeight: 1.15,
+            color: FG,
+            maxWidth: '1000px',
           }}
         >
+          {title}
+        </div>
+        {description && (
           <div
             style={{
-              fontFamily: 'Geist Mono',
-              fontWeight: 700,
-              fontSize: '56px',
-              letterSpacing: '-1px',
-              lineHeight: 1.15,
-              color: FG,
-              maxWidth: '1000px',
-            }}
-          >
-            {title}
-          </div>
-          {description && (
-            <div
-              style={{
-                fontFamily: 'Geist',
-                fontWeight: 400,
-                marginTop: '16px',
-                fontSize: '24px',
-                lineHeight: 1.4,
-                color: MUTED,
-                maxWidth: '800px',
-              }}
-            >
-              {description}
-            </div>
-          )}
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'flex-end',
-              marginTop: '24px',
-              fontFamily: 'Geist Mono Brand',
-              fontWeight: 700,
+              fontFamily: 'Geist',
+              fontWeight: 400,
+              marginTop: '16px',
               fontSize: '24px',
-              color: FG,
+              lineHeight: 1.4,
+              color: MUTED,
+              maxWidth: '800px',
             }}
           >
-            {brand}
+            {description}
           </div>
+        )}
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'flex-end',
+            marginTop: '24px',
+            fontFamily: 'Geist Mono Brand',
+            fontWeight: 700,
+            fontSize: '24px',
+            color: FG,
+          }}
+        >
+          {brand}
         </div>
       </div>
-    ),
+    </div>,
     {
       ...size,
       fonts: [

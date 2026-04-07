@@ -39,7 +39,10 @@ export function ContactMethods() {
           className="group flex items-center gap-4 rounded-lg bg-card p-4 transition-colors duration-300 hover:bg-muted"
         >
           <div className="flex h-10 w-10 items-center justify-center rounded-md bg-muted group-hover:bg-background">
-            <method.icon aria-hidden="true" className="h-5 w-5 text-muted-foreground group-hover:text-primary" />
+            <method.icon
+              aria-hidden="true"
+              className="h-5 w-5 text-muted-foreground group-hover:text-primary"
+            />
           </div>
           <div className="flex flex-col">
             <span className="font-mono text-xs font-medium uppercase tracking-widest text-muted-foreground">

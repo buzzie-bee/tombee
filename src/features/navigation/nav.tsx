@@ -21,7 +21,10 @@ export function Nav() {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-sm">
-      <nav aria-label="Main" className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
+      <nav
+        aria-label="Main"
+        className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6"
+      >
         <Link
           href={appPaths.home}
           className="font-mono text-lg font-bold tracking-tight"

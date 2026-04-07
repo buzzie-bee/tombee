@@ -93,9 +93,17 @@ export function ContactForm() {
         />
       </div>
       {status === 'error' && (
-        <p role="alert" className="text-sm text-destructive">{errorMessage}</p>
+        <p role="alert" className="text-sm text-destructive">
+          {errorMessage}
+        </p>
       )}
-      <Button type="submit" size="lg" className="mt-2 self-start" disabled={status === 'submitting'} aria-busy={status === 'submitting'}>
+      <Button
+        type="submit"
+        size="lg"
+        className="mt-2 self-start"
+        disabled={status === 'submitting'}
+        aria-busy={status === 'submitting'}
+      >
         {status === 'submitting' ? 'Sending...' : 'Send Message'}
       </Button>
     </form>

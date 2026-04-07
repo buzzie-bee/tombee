@@ -3,7 +3,7 @@ title: Rokkup
 description: An online e-learning platform for technical sales training.
 category: startup
 status: archived
-year: "2020 - 2021"
+year: '2020 - 2021'
 sortOrder: 99
 image: /projects/rokkup.png
 featured: false
@@ -16,9 +16,9 @@ tags:
   - Docker
   - Jest
   - AWS
-links:
-  - label: Demo Site
-    href: https://rokkup.tombee.io
+# links:
+#   - label: Demo Site
+#     href: https://rokkup.tombee.io
 ---
 
 ## Overview
@@ -29,16 +29,16 @@ I was tasked as the lead developer to build and implement this platform. We laun
 
 ## Tech Stack & Architecture
 
- - NestJS
- - React
- - SCSS
- - MongoDB
- - Turborepo
- - Docker
- - Jest
- - Bitbucket Actions CI/CD
- - AWS
- - Codegen
+- NestJS
+- React
+- SCSS
+- MongoDB
+- Turborepo
+- Docker
+- Jest
+- Bitbucket Actions CI/CD
+- AWS
+- Codegen
 
 ## Key Features
 
@@ -55,7 +55,7 @@ One of the big challenges was implementing this app with very tight budgets for 
 
 One of the biggest potential costs for this service if we opted to use a SaaS would be the video streaming. To keep costs as low as possible we implemented our own video encoding and streaming solution using AWS. We built a media processing pipeline using AWS Elemental MediaConvert to convert uploaded videos into MPEG-DASH format and then served those videos from S3 via CloudFront which ended up being a very cost effective solution.
 
-The biggest learning was regarding market research and idea validation prior to building and launching new products. It's a little ironic that a platform designed to train technical sales people on how to identify markets and sell to them didn't do enough idea validation ahead of time. I was convinced by the in-person training courses that had been provided and the feedback from customers that they would be happy to pay for this service, but when we actually launched adoption was lower than expected. In the future automating the market research with funnels and flows that *prove* users would be willing to pay for a service is an important part of my idea validation framework.
+The biggest learning was regarding market research and idea validation prior to building and launching new products. It's a little ironic that a platform designed to train technical sales people on how to identify markets and sell to them didn't do enough idea validation ahead of time. I was convinced by the in-person training courses that had been provided and the feedback from customers that they would be happy to pay for this service, but when we actually launched adoption was lower than expected. In the future automating the market research with funnels and flows that _prove_ users would be willing to pay for a service is an important part of my idea validation framework.
 
 A big learning was regarding the benefits of code generation. This was my first project using code generation to generate the React client code. We opted to use Redux Toolkit for the state management of the application (which was a drastic improvement over Redux, but nowadays I keep state as minimal as possible) which had a beta version of client generation from an OpenAPI spec. This spec was generated via the NestJS swagger plugin which meant it wasn't 'schema-first' development but still provided many benefits for developing the React client. At one point I hit a bug with the @rtk-query/codegen-openapi package and managed to get a PR merged to fix the issue for everyone.
 

@@ -49,9 +49,7 @@ export default async function BlogPostPage({ params }: { params: Params }) {
         </Link>
 
         <div className="mt-8 flex flex-col gap-3">
-          <time className="font-mono text-sm text-muted-foreground">
-            {post.frontmatter.date}
-          </time>
+          <time className="font-mono text-sm text-muted-foreground">{post.frontmatter.date}</time>
           <h1 className="font-mono text-3xl font-bold tracking-tight md:text-4xl">
             {post.frontmatter.title}
           </h1>

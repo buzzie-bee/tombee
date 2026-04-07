@@ -63,86 +63,84 @@ export default async function BlogOpengraphImage({
   const geistMonoBoldBrand = decodeBase64Font(GEIST_MONO_BOLD_BASE64);
 
   return new ImageResponse(
-    (
-      <div
-        style={{
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-          padding: '80px',
-          backgroundColor: BG,
-          color: FG,
-        }}
-      >
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '32px' }}>
-            <div
-              style={{
-                width: '72px',
-                height: '8px',
-                backgroundColor: PRIMARY,
-                borderRadius: '9999px',
-              }}
-            />
-            <div
-              style={{
-                fontFamily: 'Geist Mono',
-                fontWeight: 700,
-                fontSize: '20px',
-                textTransform: 'uppercase',
-                letterSpacing: '4px',
-                color: MUTED,
-              }}
-            >
-              Blog
-            </div>
-          </div>
+    <div
+      style={{
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        padding: '80px',
+        backgroundColor: BG,
+        color: FG,
+      }}
+    >
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '32px' }}>
+          <div
+            style={{
+              width: '72px',
+              height: '8px',
+              backgroundColor: PRIMARY,
+              borderRadius: '9999px',
+            }}
+          />
           <div
             style={{
               fontFamily: 'Geist Mono',
               fontWeight: 700,
-              fontSize: '64px',
-              letterSpacing: '-2px',
-              lineHeight: 1.15,
-              color: FG,
-              maxWidth: '1040px',
+              fontSize: '20px',
+              textTransform: 'uppercase',
+              letterSpacing: '4px',
+              color: MUTED,
             }}
           >
-            {title}
+            Blog
           </div>
-          {summary && (
-            <div
-              style={{
-                fontFamily: 'Geist',
-                fontWeight: 400,
-                marginTop: '24px',
-                fontSize: '28px',
-                lineHeight: 1.4,
-                color: MUTED,
-                maxWidth: '900px',
-              }}
-            >
-              {summary}
-            </div>
-          )}
         </div>
-
         <div
           style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'flex-end',
-            fontSize: '24px',
-            color: MUTED,
+            fontFamily: 'Geist Mono',
+            fontWeight: 700,
+            fontSize: '64px',
+            letterSpacing: '-2px',
+            lineHeight: 1.15,
+            color: FG,
+            maxWidth: '1040px',
           }}
         >
-          <div style={{ fontFamily: 'Geist', fontWeight: 400 }}>{date}</div>
-          <div style={{ fontFamily: 'Geist Mono Brand', fontWeight: 700, color: FG }}>{brand}</div>
+          {title}
         </div>
+        {summary && (
+          <div
+            style={{
+              fontFamily: 'Geist',
+              fontWeight: 400,
+              marginTop: '24px',
+              fontSize: '28px',
+              lineHeight: 1.4,
+              color: MUTED,
+              maxWidth: '900px',
+            }}
+          >
+            {summary}
+          </div>
+        )}
       </div>
-    ),
+
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'flex-end',
+          fontSize: '24px',
+          color: MUTED,
+        }}
+      >
+        <div style={{ fontFamily: 'Geist', fontWeight: 400 }}>{date}</div>
+        <div style={{ fontFamily: 'Geist Mono Brand', fontWeight: 700, color: FG }}>{brand}</div>
+      </div>
+    </div>,
     {
       ...size,
       fonts: [

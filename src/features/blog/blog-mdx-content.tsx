@@ -16,9 +16,7 @@ const components = {
   p: (props: React.ComponentProps<'p'>) => (
     <p className="mb-4 leading-relaxed text-foreground/85" {...props} />
   ),
-  ul: (props: React.ComponentProps<'ul'>) => (
-    <ul className="mb-4 flex flex-col gap-2" {...props} />
-  ),
+  ul: (props: React.ComponentProps<'ul'>) => <ul className="mb-4 flex flex-col gap-2" {...props} />,
   ol: (props: React.ComponentProps<'ol'>) => (
     <ol className="mb-4 flex flex-col gap-2 list-decimal pl-6" {...props} />
   ),
@@ -46,9 +44,7 @@ const components = {
     // eslint-disable-next-line @next/next/no-img-element
     <img className="my-6 w-full rounded-lg" alt={props.alt ?? ''} {...props} />
   ),
-  pre: (props: React.ComponentProps<'pre'>) => (
-    <pre className="my-6" {...props} />
-  ),
+  pre: (props: React.ComponentProps<'pre'>) => <pre className="my-6" {...props} />,
   code: (props: React.ComponentProps<'code'>) => {
     const isInline = typeof props.children === 'string' && !props.className;
     if (isInline) {

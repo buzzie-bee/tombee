@@ -12,9 +12,7 @@ export function RecentPosts() {
       <div className="flex items-end justify-between gap-4">
         <div className="flex flex-col gap-2">
           <div className="h-1 w-12 rounded-full bg-primary" />
-          <h2 className="font-mono text-2xl font-bold tracking-tight md:text-3xl">
-            Recent Posts
-          </h2>
+          <h2 className="font-mono text-2xl font-bold tracking-tight md:text-3xl">Recent Posts</h2>
         </div>
         <Link
           href={toHref({ name: 'blog' })}

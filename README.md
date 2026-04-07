@@ -28,13 +28,13 @@ Open http://localhost:3000 for the site and http://localhost:8025 for the MailHo
 
 ## Scripts
 
-| Command | Description |
-|---------|-------------|
-| `pnpm dev` | Start dev server |
-| `pnpm build` | Production build (standalone output) |
-| `pnpm lint` | Run ESLint |
-| `pnpm format` | Format with Prettier |
-| `pnpm format:check` | Check formatting without writing |
+| Command             | Description                          |
+| ------------------- | ------------------------------------ |
+| `pnpm dev`          | Start dev server                     |
+| `pnpm build`        | Production build (standalone output) |
+| `pnpm lint`         | Run ESLint                           |
+| `pnpm format`       | Format with Prettier                 |
+| `pnpm format:check` | Check formatting without writing     |
 
 ## Environment variables
 
