@@ -1,0 +1,39 @@
+---
+title: Post Title
+summary: A short summary for the blog listing and social sharing.
+date: '2026-04-04'
+published: false # set to true when ready to publish
+---
+
+Write your post content here. You can use all standard markdown features.
+
+## Subheadings
+
+Regular paragraphs with **bold**, _italic_, and [links](https://example.com).
+
+### Code blocks
+
+```typescript
+const greeting = 'Hello, world!';
+console.log(greeting);
+```
+
+### Lists
+
+- Item one
+- Item two
+- Item three
+
+### Images
+
+Use `<PostImage />` for Next.js image optimization (responsive srcsets,
+lazy-loading, correct `sizes` hint). Raw markdown `![]()` images will fail
+the build — use the component instead. `width` and `height` should be the
+source file's actual pixel dimensions (used for aspect ratio). Pass
+`priority` on the first image if it sits above the fold.
+
+<PostImage src="/blog/my-post/diagram.png" width={1600} height={1000} alt="Alt text" />
+
+### Videos
+
+<Video src="https://your-dash-manifest.mpd" poster="/path/to/poster.png" />

@@ -1,0 +1,43 @@
+services:
+  tombee-next:
+    container_name: tombee-next
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    healthcheck:
+      test:
+        [
+          'CMD',
+          'node',
+          '-e',
+          "fetch('http://localhost:3000').then(r=>{if(!r.ok)throw r.status;process.exit(0)}).catch(()=>process.exit(1))",
+        ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    env_file:
+      - .env.docker
+    networks:
+      - tombee-network
+
+  tombee-mailhog:
+    container_name: tombee-mailhog
+    image: mailhog/mailhog
+    deploy:
+      resources:
+        limits:
+          memory: 500M
+    logging:
+      driver: 'none'
+    ports:
+      - 1025:1025 # smtp server
+      - 8025:8025 # web ui
+    networks:
+      - tombee-network
+
+networks:
+  tombee-network:
+    name: tombee-network

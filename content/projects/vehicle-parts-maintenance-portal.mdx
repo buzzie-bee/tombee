@@ -1,0 +1,54 @@
+---
+title: Vehicle Parts and Maintenance Portal
+description: MVP for a vehicle aftersales parts and maintenance platform integrating multiple legacy systems.
+category: professional
+status: completed
+year: '2021 - 2022'
+sortOrder: 99
+image: /projects/vehicle-parts-maintenance-portal.png
+featured: false
+tags:
+  - Angular
+  - Express
+  - PostgreSQL
+  - OpenAPI
+  - AWS
+links: []
+---
+
+## Overview
+
+I was one of the first developers to work on a new greenfield client project to build an MVP for an aftersales maintenance platform for expert vehicle maintainers. I helped set up and scaffold the project and was involved in delivering features all the way through to the initial MVP launch.
+
+This project aimed to take various legacy tools and integrate them into a single modern platform. The idea was that people like mechanics or car dealers could look up a vehicle by VIN and see the service history, telemetry from the vehicle, repair guides, and source components all in a single dashboard/application.
+
+The project has since continued with full production version development/deployment and is used internationally by users around the world.
+
+## Tech Stack & Architecture
+
+- Angular
+- Express
+- Microservices
+- PostgreSQL
+- OpenAPI
+- AWS
+
+## Key Features
+
+- User-facing portal
+- Vehicle Lookup
+- Parts search
+- Parts ordering
+- Technical documents view
+- Service history
+- Banner campaigns
+
+## Challenges & Learnings
+
+This was quite a large project just for the MVP and it was a great project to help architect and build. We had to build systems to integrate with various legacy APIs to adapt and combine them into one clean useable modern user interface.
+
+We used this project to build out new 'best-practice' approaches to working on new projects for the agency and did a lot of upfront thinking to architect a robust structure for the various services and developer tools which helped us maintain a good developer velocity throughout the project.
+
+One big learning from this project was from a feature to implement PDF generation. I have had good experiences in the past using tools to programmatically generate PDFs as it is fairly straightforward and gives the developer full control over the layout and page structure of PDFs.
+
+Unfortunately I was directed to use a headless Puppeteer browser to generate PDFs from HTML. There was some good reasoning for this approach but having worked with making browser pages print-friendly in the past I was aware of how complex it can be to get the results you want. It was 90% correct but it took significant developer resource to get the generation to a useable state due to issues with how pages are rendered for print by the browser. Going forward I will strongly advocate against this approach if the goal is a robust PDF generator.

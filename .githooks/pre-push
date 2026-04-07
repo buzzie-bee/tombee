@@ -1,0 +1,16 @@
+#!/bin/sh
+set -e
+
+# Load nvm so pnpm/node are on PATH (needed for GUI git clients)
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+# Block pushes from GitKraken (runs in a broken sandbox)
+# if [ -n "$GITKRAKEN_BINARY_PATH" ]; then
+#   echo "Do not push from GitKraken - run git push from a terminal" >&2
+#   exit 1
+# fi
+
+pnpm format:check
+pnpm lint
+pnpm exec tsc --noEmit

@@ -1,0 +1,68 @@
+---
+title: Let's Pop To
+description: An inspirational flight finding app powered by the Skyscanner API and images sourced from Flickr.
+category: personal
+status: archived
+year: '2021'
+sortOrder: 99
+image: /projects/lets-pop-to-screenshot.png
+featured: false
+tags:
+  - React
+  - Material UI
+  - Firebase
+links:
+  - label: GitHub
+    href: https://github.com/buzzie-bee/lets_pop_to
+  - label: Live Site
+    href: https://www.letspop.to/
+---
+
+## Overview
+
+This was a small personal project born out of a real need and a wish to build something fun.
+
+When planning holidays I'm often not sure _where_ I want to go but I'm flexible about _when_ I go. I generally use Skyscanner when researching flights but I find the experience less than optimal.
+
+On Skyscanner they had a 'month' overview which let you set a departure airport and showed some possible destinations with some "low prices" for flights. If you clicked through to check out what the flights were though you had to do a lot of manual searching to find flights at that low price and if you did find them you often discovered that they took 19 hours with 4 layovers.
+
+To do that research across multiple dates and multiple airports was a very time and click intensive research session which took up a lot of browser tabs and was difficult.
+
+My main goal with the application was to make it much easier to answer a question like: "I want to go somewhere in April or May, I want a direct flight from Liverpool or Manchester Airports, I want to go for about 2 weeks, and I want my flights to be on weekends. Where can I go ".
+
+I successfully built this (not scalable) solution using the Skyscanner API with a nice UI which let the user configure their requirements, had some cloud functions make requests to the Skyscanner API, did some crunching on the data, and then displayed the possible destinations in a fun masonry layout with images of the destinations sourced from Flickr with attributions.
+
+Unfortunately the Skyscanner API became closed and I lost access to it. They only want large enterprises to be able to make requests. One day if a new flight API becomes available I'll refactor this project to use that.
+
+## Tech Stack & Architecture
+
+- React
+- Material UI
+- Skyscanner API
+- Firebase functions
+- Firebase firestore
+- Firebase storage
+- Firebase auth
+
+## Key Features
+
+- Flexible date range selector
+- Skyscanner API aggregation
+- Masonry view of possible destinations
+- Custom destination image library
+
+## Challenges & Learnings
+
+The biggest learning was not to build a product or solution based on a public API without any kind of reliable service agreement that could be made private without any alternative backup strategies. Losing access to that API and not finding a replacement killed this project not long after it launched.
+
+The first challenge was creating a custom date picker that could handle all the use cases I had in mind. The Material UI calendar was quite limited and I had to write a fair bit of logic to handle all the various versions of the selector with a clean ui and correct rendering of selections.
+
+One of the big challenges was the aggregation and normalisation of the Skyscanner API results. We had to make quite a large number of requests to the API to gather all the possible flight data for each possible combination of flights for each search. I never intended for this to be a 'real' tool which needed to scale so I was still comfortably within rate limits and usage allowances for the API, plus was only using the stale cached routes, so it wasn't a problem for this hobby project. It was still quite a lot of data to parse in tiny cloud functions in a reasonable amount of time.
+
+Another challenge was implementing the masonry view. At the time browser support didn't really exist for masonry grids so I had to roll my own solution using TS to detect how many columns to generate and sort each grid item across the columns without too much jank.
+
+Finally sourcing the images for flight destinations was more of a challenge than I expected it to be. I didn't find a cost effective solution for linking airport codes to pretty destination images. Most solutions required purchasing the rights for each individual image for the possibly 40,000 airports globally.
+
+I ended up creating another small admin site that would let me link airports to free use (with attribution) images from Flickr. I first created a little algorithm to figure out the most common destination airports globally, then I created a dashboard where I could go through each destination airport code from most common to least common and assign images. For each destination I would do a search on Flickr for the name of the destination and then render a big list of images on the tool. I could then select a few (a main image and then some backup ones in case the main one is removed later) images and store them for each destination with creator attribution.
+
+The end result of this was really cool and quite beautiful. I'm really proud of the solution even though it doesn't work anymore. If I get the time/inclination and find a replacement flight API then with all my experience since implementing this project I'm confident I'd build a much cleaner and robust solution.

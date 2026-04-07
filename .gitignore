@@ -16,6 +16,8 @@ out
 # Misc
 .DS_Store
 *.pem
+*.tsbuildinfo
+next-env.d.ts
 
 # Debug
 npm-debug.log*
@@ -26,6 +28,7 @@ yarn-error.log*
 # Local env files
 .env
 .env*.local
+.env.docker
 .env.development.local
 .env.test.local
 .env.production.local
@@ -61,6 +64,18 @@ temp/
 # archive & backup
 /archive
 
-# AI 
+# AI tooling
 .claude
+.claude*
+.mcp.json
 .cursor
+.cursorrules
+.cursorignore
+.copilot
+.github/copilot-*
+.codeium
+.continue
+.aider*
+.windsurf
+.bolt
+.v0
