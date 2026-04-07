@@ -15,34 +15,37 @@ Living design reference for tombee.io. References shadcn CSS variables and Tailw
 
 Use the shadcn palette tiers. Never hardcode colour values.
 
-| Role | Variable | When to use |
-|------|----------|-------------|
-| Page background | `background` | Default page/section background |
-| Surface | `card` | Elevated containers, cards |
-| Subtle background | `muted` | Secondary sections, subtle differentiation |
-| Primary action | `primary` | CTAs, links, interactive highlights |
-| Accent | `accent` | Hover states, active indicators |
-| Secondary | `secondary` | Supporting UI, tags, badges |
-| Text | `foreground` | Primary text |
-| Subdued text | `muted-foreground` | Secondary text, captions, timestamps |
-| Borders | `border` | Use sparingly — prefer tonal layering |
-| Destructive | `destructive` | Errors, dangerous actions |
+| Role              | Variable           | When to use                                |
+| ----------------- | ------------------ | ------------------------------------------ |
+| Page background   | `background`       | Default page/section background            |
+| Surface           | `card`             | Elevated containers, cards                 |
+| Subtle background | `muted`            | Secondary sections, subtle differentiation |
+| Primary action    | `primary`          | CTAs, links, interactive highlights        |
+| Accent            | `accent`           | Hover states, active indicators            |
+| Secondary         | `secondary`        | Supporting UI, tags, badges                |
+| Text              | `foreground`       | Primary text                               |
+| Subdued text      | `muted-foreground` | Secondary text, captions, timestamps       |
+| Borders           | `border`           | Use sparingly — prefer tonal layering      |
+| Destructive       | `destructive`      | Errors, dangerous actions                  |
 
 Dark mode is handled by the `.dark` class — all variables adapt automatically.
 
 ## Typography
 
 **Fonts:**
+
 - **Geist Mono** (`font-mono`) — headings, navigation, UI labels, code, technical content
 - **Geist Sans** (`font-sans`) — body text, paragraphs, blog content, project descriptions
 
 **Hierarchy approach:**
+
 - Headings: `font-mono` + heavier weight (`font-bold` / `font-semibold`) + tighter tracking (`tracking-tight`)
 - Body: `font-sans` + normal weight + default tracking
 - Captions/metadata: `font-mono` + `text-sm` + `text-muted-foreground`
 - Code/technical: `font-mono` naturally
 
 **Scale (Tailwind classes):**
+
 - Hero/page title: `text-4xl` / `text-5xl`
 - Section heading: `text-2xl` / `text-3xl`
 - Subheading: `text-xl`

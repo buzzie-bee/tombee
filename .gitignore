@@ -17,6 +17,7 @@ out
 .DS_Store
 *.pem
 *.tsbuildinfo
+next-env.d.ts
 
 # Debug
 npm-debug.log*
@@ -66,7 +67,6 @@ temp/
 .claude
 .claude*
 .mcp.json
-CLAUDE.md
 .cursor
 .cursorrules
 .cursorignore

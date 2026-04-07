@@ -16,6 +16,7 @@ Personal portfolio and blog built with Next.js (App Router) and shadcn/ui.
 - **Verify changes**: After non-trivial changes, run lint, type-check, and tests. All must pass before considering work done.
 - **shadcn/ui**: Always use the shadcn CLI to add/update components. Never hand-write them.
 - **Routing**: Use the typed route helper (`src/lib/navigation/routes.ts`) — never hardcode route paths in components.
+- **Testing**: E2E tests live in `e2e/`. Import `test` and `expect` from `e2e/fixtures/base` (not directly from `@playwright/test`). New pages must have entries in the route manifest (`e2e/helpers/routes.ts`).
 
 ## Commands
 
@@ -24,6 +25,8 @@ Personal portfolio and blog built with Next.js (App Router) and shadcn/ui.
 - `pnpm lint` — run linter
 - `pnpm format` — format all files with Prettier
 - `pnpm format:check` — check formatting without writing
+- `pnpm test:e2e` — run E2E tests (starts dev server automatically)
+- `pnpm test:e2e:ui` — run E2E tests in interactive UI mode
 
 ## PRDs
 
