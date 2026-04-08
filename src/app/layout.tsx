@@ -52,19 +52,21 @@ export default function RootLayout({
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
+
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Nav />
           {children}
           <Footer />
         </ThemeProvider>
+
+        <Script
+          src="https://rybbit.tombee.io/api/script.js"
+          data-site-id="1"
+          data-session-replay="true"
+          data-track-errors="true"
+          strategy="afterInteractive"
+        />
       </body>
-      <Script
-        src="https://rybbit.tombee.io/api/script.js"
-        data-site-id="1"
-        data-session-replay="true"
-        data-track-errors="true"
-        strategy="afterInteractive"
-      />
     </html>
   );
 }
