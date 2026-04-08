@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { ThemeProvider } from '@/components/common/theme-provider';
 import { Nav } from '@/features/navigation/nav';
@@ -57,6 +58,13 @@ export default function RootLayout({
           <Footer />
         </ThemeProvider>
       </body>
+      <Script
+        src="https://rybbit.tombee.io/api/script.js"
+        data-site-id="1"
+        data-session-replay="true"
+        data-track-errors="true"
+        strategy="afterInteractive"
+      />
     </html>
   );
 }
