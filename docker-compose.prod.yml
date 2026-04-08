@@ -1,6 +1,7 @@
 services:
   web:
     image: ghcr.io/buzzie-bee/tombee:latest
+    pull_policy: always
     restart: unless-stopped
     healthcheck:
       test:
