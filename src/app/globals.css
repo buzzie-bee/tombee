@@ -165,6 +165,64 @@
   color: var(--shiki-dark);
 }
 
+/* rehype-mermaid-themed: each diagram is rendered twice (light + dark)
+   and we toggle visibility based on the .dark class on <html>. */
+.mermaid-themed {
+  margin: 1.5rem 0;
+}
+.mermaid-themed .mermaid-light,
+.mermaid-themed .mermaid-dark {
+  padding: 1.25rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+.mermaid-themed .mermaid-light {
+  background: oklch(0.99 0 0);
+}
+.mermaid-themed .mermaid-dark {
+  display: none;
+  background: oklch(0.205 0 0);
+}
+.dark .mermaid-themed .mermaid-light {
+  display: none;
+}
+.dark .mermaid-themed .mermaid-dark {
+  display: block;
+}
+.mermaid-themed svg[aria-roledescription] {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* Mermaid renders node and edge labels via <foreignObject>s containing HTML.
+   next-mdx-remote applies our MDX component map to those nested elements (so
+   `p` picks up `mb-4 leading-relaxed text-foreground/85`), which both shifts
+   text out of the pre-measured foreignObject box and uses --foreground —
+   near-white in dark mode and invisible on the diagram card. Reset to the
+   font that mermaid measured against, with the appropriate text colour. */
+.mermaid-themed .mermaid-light foreignObject p,
+.mermaid-themed .mermaid-light foreignObject span,
+.mermaid-themed .mermaid-light foreignObject div,
+.mermaid-themed .mermaid-dark foreignObject p,
+.mermaid-themed .mermaid-dark foreignObject span,
+.mermaid-themed .mermaid-dark foreignObject div {
+  margin: 0;
+  line-height: 1.4;
+  font-family: 'Geist Mono', monospace;
+}
+.mermaid-themed .mermaid-light foreignObject p,
+.mermaid-themed .mermaid-light foreignObject span,
+.mermaid-themed .mermaid-light foreignObject div {
+  color: oklch(0.205 0 0);
+}
+.mermaid-themed .mermaid-dark foreignObject p,
+.mermaid-themed .mermaid-dark foreignObject span,
+.mermaid-themed .mermaid-dark foreignObject div {
+  color: oklch(0.985 0 0);
+}
+
 /* Skip-to-main-content link */
 .skip-link {
   @apply sr-only;
