@@ -25,6 +25,12 @@ COPY . .
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 
+# rehype-mermaid renders diagrams to SVG at build time using Playwright.
+# Install Chromium and its system deps so `pnpm build` can prerender pages
+# that contain mermaid blocks. The browser stays in this builder stage and
+# is not copied into the runner image.
+RUN pnpm exec playwright install --with-deps chromium
+
 RUN pnpm build
 
 # ---
