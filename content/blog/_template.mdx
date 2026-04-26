@@ -30,9 +30,33 @@ Use `<PostImage />` for Next.js image optimization (responsive srcsets,
 lazy-loading, correct `sizes` hint). Raw markdown `![]()` images will fail
 the build — use the component instead. `width` and `height` should be the
 source file's actual pixel dimensions (used for aspect ratio). Pass
-`priority` on the first image if it sits above the fold.
+`priority` on the first image if it sits above the fold. The optional
+`caption` prop renders a `<figcaption>` below the image; `alt` is for
+screen readers and SEO, `caption` is for sighted readers.
 
-<PostImage src="/blog/my-post/diagram.png" width={1600} height={1000} alt="Alt text" />
+<PostImage
+  src="/blog/my-post/diagram.png"
+  width="1600"
+  height="1000"
+  alt="Alt text describing the image for screen readers"
+  caption="Optional sighted-reader caption."
+/>
+
+### Captioned code blocks (and other figures)
+
+Use `<Figure caption="...">` to wrap a code block (or anything else) with
+a sighted-reader caption rendered below it as a `<figcaption>`. The blank
+lines around the code block are required so MDX switches back to markdown
+parsing inside the JSX.
+
+<Figure caption="Optional sighted-reader caption.">
+
+```typescript
+const greeting = 'Hello, world!';
+console.log(greeting);
+```
+
+</Figure>
 
 ### Videos
 

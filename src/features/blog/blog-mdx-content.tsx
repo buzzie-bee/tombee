@@ -1,12 +1,15 @@
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import rehypePrettyCode from 'rehype-pretty-code';
 import { VideoPlayer } from '@/components/common/video-player';
+import { Figure } from './figure';
 import { PostImage } from './post-image';
+import { buildGeistMonoCssUrl, rehypeMermaidThemed } from './rehype-mermaid-themed';
 import { remarkNoMarkdownImages } from './remark-no-markdown-images';
 
 const components = {
   Video: VideoPlayer,
   PostImage,
+  Figure,
   h2: (props: React.ComponentProps<'h2'>) => (
     <h2 className="mt-10 mb-4 font-mono text-xl font-semibold tracking-tight" {...props} />
   ),
@@ -46,7 +49,8 @@ const components = {
   ),
   pre: (props: React.ComponentProps<'pre'>) => <pre className="my-6" {...props} />,
   code: (props: React.ComponentProps<'code'>) => {
-    const isInline = typeof props.children === 'string' && !props.className;
+    const isInline =
+      typeof props.children === 'string' && !props.className && !props.children.includes('\n');
     if (isInline) {
       return (
         <code
@@ -68,6 +72,21 @@ const rehypePrettyCodeOptions = {
   keepBackground: false,
 };
 
+const mermaidFontFamily = "'Geist Mono', monospace";
+const rehypeMermaidThemedOptions = {
+  css: buildGeistMonoCssUrl(),
+  themes: [
+    {
+      className: 'mermaid-light',
+      mermaidConfig: { theme: 'neutral', fontFamily: mermaidFontFamily },
+    },
+    {
+      className: 'mermaid-dark',
+      mermaidConfig: { theme: 'dark', fontFamily: mermaidFontFamily },
+    },
+  ],
+};
+
 export function BlogMdxContent({ source }: { source: string }) {
   return (
     <article className="prose-custom">
@@ -77,7 +96,10 @@ export function BlogMdxContent({ source }: { source: string }) {
         options={{
           mdxOptions: {
             remarkPlugins: [remarkNoMarkdownImages],
-            rehypePlugins: [[rehypePrettyCode, rehypePrettyCodeOptions]],
+            rehypePlugins: [
+              [rehypeMermaidThemed, rehypeMermaidThemedOptions],
+              [rehypePrettyCode, rehypePrettyCodeOptions],
+            ],
           },
         }}
       />
