@@ -65,8 +65,11 @@ test.describe('Contact form', () => {
     await page.locator('#message').fill('Hello');
     await page.locator('button[type="submit"]').click();
 
-    await expect(page.locator('p[role="alert"]')).toBeVisible();
-    await expect(page.locator('p[role="alert"]')).toContainText('Failed to send message');
+    await expect(page.locator('form [role="alert"]')).toBeVisible();
+    await expect(page.locator('form [role="alert"]')).toContainText('Failed to send message');
+    await expect(
+      page.locator('form [role="alert"] a[href="mailto:hello@tombee.io"]'),
+    ).toBeVisible();
   });
 
   test('message is prefilled from query parameter', async ({ page }) => {

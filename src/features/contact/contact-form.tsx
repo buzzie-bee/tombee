@@ -93,9 +93,19 @@ export function ContactForm() {
         />
       </div>
       {status === 'error' && (
-        <p role="alert" className="text-sm text-destructive">
-          {errorMessage}
-        </p>
+        <div role="alert" className="flex flex-col gap-1 text-sm">
+          <p className="text-destructive">{errorMessage}</p>
+          <p className="text-muted-foreground">
+            You can also reach me directly at{' '}
+            <a
+              href="mailto:hello@tombee.io"
+              className="text-primary underline underline-offset-4 hover:text-primary/80"
+            >
+              hello@tombee.io
+            </a>
+            .
+          </p>
+        </div>
       )}
       <Button
         type="submit"
