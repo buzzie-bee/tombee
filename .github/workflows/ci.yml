@@ -12,7 +12,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - uses: pnpm/action-setup@v6
 
@@ -28,7 +28,7 @@ jobs:
   typecheck:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - uses: pnpm/action-setup@v6
 
@@ -48,7 +48,7 @@ jobs:
     outputs:
       tag: ${{ steps.pw.outputs.tag }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - name: Get Playwright version
         id: pw
@@ -104,7 +104,7 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
       options: --user 1001 --ipc=host
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - run: pnpm install --frozen-lockfile
 
@@ -130,7 +130,7 @@ jobs:
       contents: read
       packages: write
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v4
